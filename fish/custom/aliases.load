@@ -1,0 +1,60 @@
+# Directories
+alias code 'cd ~/code'
+alias agent 'cd ~/code/new_relic/ruby_agent'
+alias play 'cd ~/code/new_relic/playground'
+alias sup 'cd ~/code/new_relic/support'
+alias drop 'cd ~/Dropbox'
+alias down 'cd ~/Downloads'
+
+# Git
+alias gs 'git status $argv'
+alias ga 'git add $argv'
+alias gc 'git commit $argv'
+alias gco 'git checkout $argv'
+alias freshmasterflash='git fetch upstream master -v; git rebase upstream/master -v; git push origin -v'
+
+# Net
+alias ip "dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip "ipconfig getifaddr en1"
+alias ips "ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/; print $1'"
+alias whois "whois -h whois-servers.net"
+alias flush "dscacheutil -flushcache"
+alias sniff "sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
+alias httpdump "sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
+
+# Mac
+alias show "defaults write com.apple.finder AppleShowAllFiles ON; killall Finder"
+alias hide "defaults write com.apple.finder AppleShowAllFiles OFF; killall Finder"
+
+# Dev
+alias migrate "bundle exec rake db:migrate; bundle exec rake db:test:prepare"
+alias start_sphinx "searchd -c config/sphinx-dev/sphinx.dev.conf"
+alias stop_sphinx "searchd -c config/sphinx-dev/sphinx.dev.conf --stop"
+alias be "bundle exec"
+alias server 'ruby -rrack -e "include Rack;Handler::Thin.run Builder.new{run Directory.new %q[]}"'
+
+# Editing
+function ali
+  vim ~/dotfiles/fish/custom/aliases.load
+  . ~/dotfiles/fish/custom/aliases.load
+end
+
+function en
+  vim ~/dotfiles/fish/custom/environment.load
+  . ~/dotfiles/fish/custom/environment.load
+end
+
+function conf
+  vim ~/dotfiles/fish/config.fish
+  . ~/dotfiles/fish/config.fish
+end
+
+function en
+  vim ~/dotfiles/fish/custom/environment.load
+  . ~/dotfiles/fish/custom/environment.load
+end
+
+function omf
+  cd ~/.oh-my-fish
+  vim .
+end

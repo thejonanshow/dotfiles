@@ -1,0 +1,8 @@
+set -x LC_ALL "en_US.UTF-8"
+set -x LANG "en_US"
+set -x EDITOR "vim"
+set -x MANPAGER "less -X"
+set -x HISTSIZE 32768
+set -x HISTFILESIZE $HISTSIZE
+set -x HISTCONTROL ignoredups
+set -x HISTIGNORE "ls:ls *:cd:cd -:pwd;exit:date:* --help"
