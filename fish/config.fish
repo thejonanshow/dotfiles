@@ -12,7 +12,8 @@ set fish_plugins autojump brew bundler emoji-clock localhost rails rake rvm subl
 set fish_custom $HOME/dotfiles/fish/custom
 
 function fish_prompt
-  printf '%s  %s' (emoji-clock) (~/bin/powerline-shell.py $status --shell bare)
+  ~/bin/powerline-shell.py $status --shell bare
+  # printf '%s  %s' (emoji-clock) (~/bin/powerline-shell.py $status --shell bare)
 end
 
 # Load oh-my-fish cofiguration.
