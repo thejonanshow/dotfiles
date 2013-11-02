@@ -3,6 +3,7 @@ alias code 'cd ~/code'
 alias agent 'cd ~/code/new_relic/ruby_agent'
 alias play 'cd ~/code/new_relic/playground'
 alias sup 'cd ~/code/new_relic/support'
+alias rpm 'cd ~/code/new_relic/rpm_site'
 alias drop 'cd ~/Dropbox'
 alias down 'cd ~/Downloads'
 
@@ -10,7 +11,10 @@ alias down 'cd ~/Downloads'
 alias gs 'git status $argv'
 alias ga 'git add $argv'
 alias gc 'git commit $argv'
-alias gco 'git checkout $argv'
+alias gd 'git diff --cached'
+function gco
+  git checkout $argv
+end
 alias freshmasterflash='git fetch upstream master -v; git rebase upstream/master -v; git push origin -v'
 
 # Net

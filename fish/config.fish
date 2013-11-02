@@ -1,5 +1,6 @@
 # Path to your oh-my-fish.
 set fish_path $HOME/.oh-my-fish
+set -Ux LSCOLORS Exfxcxdxbxegedabagacad
 
 # Theme
 set fish_theme robbyrussell
