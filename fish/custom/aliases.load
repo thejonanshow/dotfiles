@@ -6,13 +6,15 @@ alias sup 'cd ~/code/new_relic/support'
 alias rpm 'cd ~/code/new_relic/rpm_site'
 alias drop 'cd ~/Dropbox'
 alias down 'cd ~/Downloads'
+alias sand 'cd /Users/jonan/Dropbox/code/sandbox'
 alias shoes '/Users/jonan/.rvm/gems/jruby-1.7.6@pirates/gems/shoes-4.0.0.pre1/bin/shoes'
 
 # Git
 alias gs 'git status $argv'
 alias ga 'git add $argv'
 alias gc 'git commit $argv'
-alias gd 'git diff --cached'
+alias gd 'git diff'
+alias gd- 'git diff --cached'
 alias gt 'git log --tags --simplify-by-decoration --pretty="format:%ai %d" '
 
 function gco
