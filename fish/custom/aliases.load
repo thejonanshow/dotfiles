@@ -7,7 +7,7 @@ alias rpm 'cd ~/code/new_relic/rpm_site'
 alias drop 'cd ~/Dropbox'
 alias down 'cd ~/Downloads'
 alias sand 'cd /Users/jonan/Dropbox/code/sandbox'
-alias shoes '/Users/jonan/.rvm/gems/jruby-1.7.6@pirates/gems/shoes-4.0.0.pre1/bin/shoes'
+alias nb 'env NO_BUNDLE_EXEC=1'
 
 # Git
 alias gs 'git status $argv'
@@ -16,6 +16,7 @@ alias gc 'git commit $argv'
 alias gd 'git diff'
 alias gd- 'git diff --cached'
 alias gt 'git log --tags --simplify-by-decoration --pretty="format:%ai %d" '
+alias gp 'git pull --rebase'
 
 function gco
   git checkout $argv
