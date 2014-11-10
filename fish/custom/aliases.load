@@ -7,7 +7,10 @@ alias rpm 'cd ~/code/new_relic/rpm_site'
 alias drop 'cd ~/Dropbox'
 alias down 'cd ~/Downloads'
 alias sand 'cd /Users/jonan/Dropbox/code/sandbox'
+alias dbundle 'ruby -I /Users/jonan/Dropbox/code/bundler /Users/jonan/Dropbox/code/bundler/bin/bundle'
 alias nb 'env NO_BUNDLE_EXEC=1'
+alias staging "echo 'd67afc830dab717fd163bfcb0b8b88423e9a1a3b' | pbcopy"
+alias gogo 'cd /Users/jonan/Dropbox/code/go/src'
 
 # Git
 alias gs 'git status $argv'
@@ -21,7 +24,8 @@ alias gp 'git pull --rebase'
 function gco
   git checkout $argv
 end
-alias freshmasterflash='git fetch upstream master -v; git rebase upstream/master -v; git push origin -v'
+alias freshmasterflash='git fetch upstream master -v; git rebase upstream/master -v; git push origin master -v'
+alias freshtrunkflash='git fetch upstream trunk -v; git rebase upstream/trunk -v; git push origin trunk -v'
 
 # Net
 alias ip "dig +short myip.opendns.com @resolver1.opendns.com"
@@ -41,7 +45,7 @@ alias migrate "bundle exec rake db:migrate; bundle exec rake db:test:prepare"
 alias start_sphinx "searchd -c config/sphinx-dev/sphinx.dev.conf"
 alias stop_sphinx "searchd -c config/sphinx-dev/sphinx.dev.conf --stop"
 alias be "bundle exec"
-alias server 'ruby -rrack -e "include Rack;Handler::Thin.run Builder.new{run Directory.new %q[]}"'
+# alias server 'ruby -rrack -e "include Rack;Handler::Thin.run Builder.new{run Directory.new %q[]}"'
 
 # Editing
 function ali
