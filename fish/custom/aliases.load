@@ -4,6 +4,7 @@ alias agent 'cd ~/code/new_relic/ruby_agent'
 alias play 'cd ~/code/new_relic/playground'
 alias sup 'cd ~/code/new_relic/support'
 alias rpm 'cd ~/code/new_relic/rpm_site'
+alias coll 'cd ~/code/new_relic/collector'
 alias drop 'cd ~/Dropbox'
 alias down 'cd ~/Downloads'
 alias sand 'cd /Users/jonan/Dropbox/code/sandbox'
@@ -11,6 +12,7 @@ alias dbundle 'ruby -I /Users/jonan/Dropbox/code/bundler /Users/jonan/Dropbox/co
 alias nb 'env NO_BUNDLE_EXEC=1'
 alias staging "echo 'd67afc830dab717fd163bfcb0b8b88423e9a1a3b' | pbcopy"
 alias gogo 'cd /Users/jonan/Dropbox/code/go/src'
+alias glass "eval 'bash /Users/jonan/Dropbox/code/android_studio_projects/adb-run.sh /Users/jonan/Dropbox/code/android_studio_projects/airdisplay.apk'"
 
 # Git
 alias gs 'git status $argv'

@@ -4,6 +4,9 @@ set PATH /Users/jonan/bin $PATH
 set PATH /Applications/Postgres93.app/Contents/MacOS/bin $PATH
 set PATH /usr/local/go/bin $PATH
 set PATH /Users/jonan/Dropbox/code/go/bin $PATH
+set PATH /Users/jonan/Library/Android/sdk/platform-tools $PATH
+set PATH /Users/jonan/Library/Android/sdk/build-tools/21.0.2 $PATH
+set PATH /Users/jonan/Library/Android/sdk/build-tools/21.0.2 $PATH
 
 set -Ux LSCOLORS Exfxcxdxbxegedabagacad
 set -x DOCKER_HOST 'tcp://localhost:2375'
