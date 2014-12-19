@@ -49,9 +49,6 @@ def exclude?(filename)
   @exclusions.include? filename.downcase
 end
 
-def bashfile?(filename)
-end
-
 def link_exists?(filename)
   File.exists? File.join(`echo $HOME`.strip, ".#{filename}")
 end
