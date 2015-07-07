@@ -7,11 +7,17 @@ set PATH /Users/jonan/Dropbox/code/go/bin $PATH
 set PATH /Users/jonan/Library/Android/sdk/platform-tools $PATH
 set PATH /Users/jonan/Library/Android/sdk/build-tools/21.0.2 $PATH
 set PATH /Users/jonan/Library/Android/sdk/build-tools/21.0.2 $PATH
+set PATH /usr/local/texlive/2014/bin $PATH
+set PATH /usr/local/texlive/2014/bin/x86_64-darwin $PATH
 
 set -Ux LSCOLORS Exfxcxdxbxegedabagacad
-set -x DOCKER_HOST 'tcp://localhost:2375'
 set -x GOPATH /Users/jonan/Dropbox/code/go
 set -x JRUBY_OPTS "--dev"
+set -x DOCKER_HOST tcp://192.168.59.103:2376
+set -x DOCKER_CERT_PATH /Users/jonan/.boot2docker/certs/boot2docker-vm
+set -x DOCKER_TLS_VERIFY 1
+set -x FERRIS_URL http://localhost:3000
+set -x PROJECT_HOME /Users/jonan/Dropbox/code/python
 
 # Theme
 set fish_theme robbyrussell
@@ -30,4 +36,14 @@ end
 
 # Load oh-my-fish cofiguration.
 . $fish_path/oh-my-fish.fish
-status --is-interactive; and . (rbenv init -|psub)
+set -gx RBENV_ROOT /usr/local/var/rbenv
+. (rbenv init -|psub)
+
+# Setup pyenv
+set PYENV_ROOT $HOME/.pyenv
+set -x PATH $PYENV_ROOT/shims $PYENV_ROOT/bin $PATH
+pyenv rehash
+
+eval (python -m virtualfish auto_activation global_requirements projects)
+
+# fortune | cowsay | lolcat
