@@ -19,13 +19,6 @@ set -x DOCKER_TLS_VERIFY 1
 set -x FERRIS_URL http://localhost:3000
 set -x PROJECT_HOME /Users/jonan/Dropbox/code/python
 
-# Theme
-set fish_theme robbyrussell
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-fish/plugins/*)
-# Custom plugins may be added to ~/.oh-my-fish/custom/plugins/
-set fish_plugins autojump brew emoji-clock localhost rails rake sublime rbenv
-
 # Path to your custom folder (default path is $FISH/custom)
 set fish_custom $HOME/dotfiles/fish/custom
 
