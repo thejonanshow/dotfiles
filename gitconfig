@@ -1,0 +1,8 @@
+[push]
+  default = simple
+
+[alias]
+  hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+[user]
+	email = jonanscheffler@gmail.com
+	name = Jonan Scheffler

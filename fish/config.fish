@@ -32,10 +32,9 @@ end
 set -gx RBENV_ROOT /usr/local/var/rbenv
 . (rbenv init -|psub)
 
-# Setup pyenv
-set PYENV_ROOT $HOME/.pyenv
-set -x PATH $PYENV_ROOT/shims $PYENV_ROOT/bin $PATH
-pyenv rehash
+set PATH $HOME/.rbenv/bin $PATH
+set PATH $HOME/.rbenv/shims $PATH
+rbenv rehash >/dev/null ^&1
 
 eval (python -m virtualfish auto_activation global_requirements projects)
 
