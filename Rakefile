@@ -13,6 +13,16 @@ namespace :install do
     end
 
     symlink_files(args)
+    symlink_bin
+  end
+
+  def symlink_bin
+    if File.exist? '/Users/jonan/bin'
+      puts "Not symlinking #{@home_dir}/bin, you already have one."
+    else
+      puts "Symlinking #{@home_dir}/dotfiles/bin to #{@home_dir}/bin"
+      `ln -s #{@home_dir}/dotfiles/bin #{@home_dir}/bin`
+    end
   end
 
   def symlink_files(args = {})
@@ -35,6 +45,7 @@ namespace :install do
   task :fish do
     @exclusions += @bashfiles
     symlink_files
+    symlink_bin
     puts "Symlinking fish/config.fish to #{@home_dir}/.config/fish/config.fish (overwriting config.fish)"
     `ln -sf #{@home_dir}/dotfiles/fish/config.fish #{@home_dir}/.config/fish/config.fish`
   end
