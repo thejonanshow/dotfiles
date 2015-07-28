@@ -1,7 +1,7 @@
 require 'rake'
 
 @home_dir = `echo $HOME`.strip
-@exclusions = %w(rake fish readme.md)
+@exclusions = %w(rake fish readme.md iterm bin)
 @bashfiles = %w(bash_profile bash_prompt bash_scripts exports functions inputrc)
 
 namespace :install do
