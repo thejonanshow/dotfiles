@@ -1,41 +1,22 @@
 # Path to your oh-my-fish.
 set fish_path $HOME/.oh-my-fish
-set PATH /Users/jonan/bin $PATH
-set PATH /Applications/Postgres93.app/Contents/MacOS/bin $PATH
-set PATH /usr/local/go/bin $PATH
-set PATH /Users/jonan/Dropbox/code/go/bin $PATH
-set PATH /Users/jonan/Library/Android/sdk/platform-tools $PATH
-set PATH /Users/jonan/Library/Android/sdk/build-tools/21.0.2 $PATH
-set PATH /Users/jonan/Library/Android/sdk/build-tools/21.0.2 $PATH
-set PATH /usr/local/texlive/2014/bin $PATH
-set PATH /usr/local/texlive/2014/bin/x86_64-darwin $PATH
-
-set -Ux LSCOLORS Exfxcxdxbxegedabagacad
-set -x GOPATH /Users/jonan/Dropbox/code/go
-set -x JRUBY_OPTS "--dev"
-set -x DOCKER_HOST tcp://192.168.59.103:2376
-set -x DOCKER_CERT_PATH /Users/jonan/.boot2docker/certs/boot2docker-vm
-set -x DOCKER_TLS_VERIFY 1
-set -x FERRIS_URL http://localhost:3000
-set -x PROJECT_HOME /Users/jonan/Dropbox/code/python
 
 # Path to your custom folder (default path is $FISH/custom)
 set fish_custom $HOME/dotfiles/fish/custom
 
-function fish_prompt
-  ~/bin/powerline-shell.py $status --shell bare
-  # printf '%s  %s' (emoji-clock) (~/bin/powerline-shell.py $status --shell bare)
-end
-
-# Load oh-my-fish cofiguration.
 . $fish_path/oh-my-fish.fish
-set -gx RBENV_ROOT /usr/local/var/rbenv
-. (rbenv init -|psub)
 
-set PATH $HOME/.rbenv/bin $PATH
-set PATH $HOME/.rbenv/shims $PATH
-rbenv rehash >/dev/null ^&1
+# I have no idea why these lines are necessary
+# They load the Plugin and Theme functions manually but they should have already
+# been loaded when we pulled in oh-my-fish.
+. ~/.oh-my-fish/functions/Plugin.fish
+. ~/.oh-my-fish/functions/Theme.fish
 
-eval (python -m virtualfish auto_activation global_requirements projects)
+Theme 'robbyrussell'
+Theme 'bobthefish'
+Plugin 'theme'
+
+source /usr/local/share/chruby/chruby.fish
+source /usr/local/share/chruby/auto.fish
 
 # fortune | cowsay | lolcat

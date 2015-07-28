@@ -68,7 +68,7 @@ end
 
 function conf
   vim ~/dotfiles/fish/config.fish
-  . ~/dotfiles/fish/config.fish
+  source ~/.config/fish/config.fish
 end
 
 function en

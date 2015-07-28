@@ -83,9 +83,9 @@
 	<key>MaxVertically</key>
 	<false/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/dotfiles</string>
+	<string>~/dotfiles/iterm</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
-	<string>{712, 877}</string>
+	<string>{712, 830}</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -95,13 +95,15 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>1748 948 445 103 0 0 2560 1417 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>798 503 924 485 0 0 2560 1417 </string>
+	<string>252 224 924 485 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>512 220 1530 1063 0 0 2560 1417 </string>
+	<string>0 51 1438 826 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>512 857 585 426 0 0 2560 1417 </string>
+	<string>222 390 570 426 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>419 143 585 426 0 0 2560 1417 </string>
+	<key>NeverWarnAboutShortLivedSessions_5D87BC19-FDCE-41E6-9F84-23BBA28D5397</key>
+	<true/>
 	<key>NeverWarnAboutShortLivedSessions_ECAC6C5C-0DAB-41C7-872C-DD669A3D63FC</key>
 	<true/>
 	<key>New Bookmarks</key>
@@ -324,7 +326,7 @@
 			<key>Custom Command</key>
 			<string>No</string>
 			<key>Custom Directory</key>
-			<string>No</string>
+			<string>Recycle</string>
 			<key>Default Bookmark</key>
 			<string>No</string>
 			<key>Disable Printing</key>
@@ -669,7 +671,7 @@
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
-			<integer>1000</integer>
+			<integer>10000</integer>
 			<key>Scrollback With Status Bar</key>
 			<false/>
 			<key>Scrollback in Alternate Screen</key>
@@ -1557,6 +1559,12 @@
 			<string>/Users/jonan</string>
 		</dict>
 	</array>
+	<key>NoSyncNeverRemindPrefsChangesCopy</key>
+	<true/>
+	<key>NoSyncTimeOfLastPromo</key>
+	<real>459156220.48822099</real>
+	<key>NoSyncTimeOfLastPromoDownload</key>
+	<real>459379496.534778</real>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -1603,7 +1611,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/jonan/dotfiles</string>
+	<string>/Users/jonan/dotfiles/iterm</string>
 	<key>PromptOnQuit</key>
 	<true/>
 	<key>QuitWhenAllWindowsClosed</key>
@@ -1619,7 +1627,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-07-13T23:23:30Z</date>
+	<date>2015-07-26T05:30:48Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
