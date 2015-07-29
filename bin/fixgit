@@ -1,0 +1,56 @@
+#!/usr/bin/env ruby
+# This script removes files from .git that contain "conflicted copy"
+
+require '/Users/jonan/bin/commandant.rb'
+include Commandant
+
+unless File.exist? '.git'
+  puts "This is not a git directory"
+  exit
+end
+
+filenames = Dir.glob(".git/**/*conflicted copy*")
+
+if filenames.length > 0
+  puts "Found conflicted copies:"
+  puts filenames
+  puts
+else
+  puts "No conflicted copies found."
+  exit
+end
+
+prompt = Commandant::Prompt.new
+
+prompt.add_command 'p', '(P)rompt for each file individually.' do
+  filenames.each do |filename|
+    puts
+    puts "Filename: #{filename}"
+
+    subprompt = Commandant::Prompt.new(false)
+
+    subprompt.add_command 's', '(S)kip this file.' do
+      puts
+      puts "Skipping #{filename}"
+      next
+    end
+    subprompt.add_command 'd', '(D)elete this file.' do
+      puts
+      puts "Deleting #{filename}"
+      `rm "#{filename}"`
+    end
+
+    subprompt.run
+  end
+end
+
+prompt.add_command 'd', '(D)elete all of the files.' do
+  puts "Deleting all files"
+
+  filenames.each do |filename|
+    puts "Deleting #{filename}"
+    `rm "#{filename}"`
+  end
+end
+
+prompt.run
