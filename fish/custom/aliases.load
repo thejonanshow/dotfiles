@@ -80,3 +80,8 @@ function omf
   cd ~/.oh-my-fish
   vim .
 end
+
+function ge
+  vim ~/dotfiles/gitconfig
+  cp ~/dotfiles/gitconfig ~/.gitconfig
+end

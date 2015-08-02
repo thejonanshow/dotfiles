@@ -2,7 +2,7 @@
   default = simple
 
 [alias]
-  hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+  hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=relative
 [user]
 	email = jonanscheffler@gmail.com
 	name = Jonan Scheffler
