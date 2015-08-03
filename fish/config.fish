@@ -12,7 +12,6 @@ set fish_custom $HOME/dotfiles/fish/custom
 . ~/.oh-my-fish/functions/Plugin.fish
 . ~/.oh-my-fish/functions/Theme.fish
 
-Theme 'robbyrussell'
 Theme 'bobthefish'
 Plugin 'theme'
 
