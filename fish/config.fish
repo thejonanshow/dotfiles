@@ -2,7 +2,7 @@
 set fish_path $HOME/.oh-my-fish
 
 # Path to your custom folder (default path is $FISH/custom)
-set fish_custom $HOME/dotfiles/fish/custom
+set fish_custom $HOME/src/dotfiles/fish/custom
 
 . $fish_path/oh-my-fish.fish
 
