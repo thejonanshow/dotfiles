@@ -76,11 +76,6 @@ function en
   . ~/src/dotfiles/fish/custom/environment.load
 end
 
-function omf
-  cd ~/.oh-my-fish
-  vim .
-end
-
 function ge
   vim ~/src/dotfiles/gitconfig
   cp ~/src/dotfiles/gitconfig ~/.gitconfig
