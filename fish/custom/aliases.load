@@ -57,23 +57,23 @@ alias be "bundle exec"
 
 # Editing
 function ali
-  vim ~/dotfiles/fish/custom/aliases.load
-  . ~/dotfiles/fish/custom/aliases.load
+  vim ~/src/dotfiles/fish/custom/aliases.load
+  . ~/src/dotfiles/fish/custom/aliases.load
 end
 
 function en
-  vim ~/dotfiles/fish/custom/environment.load
-  . ~/dotfiles/fish/custom/environment.load
+  vim ~/src/dotfiles/fish/custom/environment.load
+  . ~/src/dotfiles/fish/custom/environment.load
 end
 
 function conf
-  vim ~/dotfiles/fish/config.fish
+  vim ~/src/dotfiles/fish/config.fish
   source ~/.config/fish/config.fish
 end
 
 function en
-  vim ~/dotfiles/fish/custom/environment.load
-  . ~/dotfiles/fish/custom/environment.load
+  vim ~/src/dotfiles/fish/custom/environment.load
+  . ~/src/dotfiles/fish/custom/environment.load
 end
 
 function omf
@@ -82,6 +82,6 @@ function omf
 end
 
 function ge
-  vim ~/dotfiles/gitconfig
-  cp ~/dotfiles/gitconfig ~/.gitconfig
+  vim ~/src/dotfiles/gitconfig
+  cp ~/src/dotfiles/gitconfig ~/.gitconfig
 end
