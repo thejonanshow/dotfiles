@@ -83,25 +83,19 @@
 	<key>MaxVertically</key>
 	<false/>
 	<key>NSNavLastRootDirectory</key>
-  <string>~/src/dotfiles/iterm</string>
+	<string>~/Documents</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
-	<string>{712, 830}</string>
+	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
 	<string></string>
 	<key>NSScrollAnimationEnabled</key>
 	<false/>
-	<key>NSWindow Frame NSFontPanel</key>
-	<string>1748 948 445 103 0 0 2560 1417 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>252 224 924 485 0 0 1440 900 </string>
+	<string>430 281 924 485 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 51 1438 826 0 0 1440 877 </string>
-	<key>NSWindow Frame iTerm Window 1</key>
-	<string>222 390 570 426 0 0 1440 877 </string>
-	<key>NSWindow Frame iTerm Window 2</key>
-	<string>419 143 585 426 0 0 2560 1417 </string>
+	<string>3 67 1431 810 0 0 1440 877 </string>
 	<key>NeverWarnAboutShortLivedSessions_5D87BC19-FDCE-41E6-9F84-23BBA28D5397</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_ECAC6C5C-0DAB-41C7-872C-DD669A3D63FC</key>
@@ -1051,7 +1045,7 @@
 			<key>Custom Command</key>
 			<string>No</string>
 			<key>Custom Directory</key>
-			<string>No</string>
+			<string>Recycle</string>
 			<key>Default Bookmark</key>
 			<string>No</string>
 			<key>Disable Printing</key>
@@ -1562,9 +1556,9 @@
 	<key>NoSyncNeverRemindPrefsChangesCopy</key>
 	<true/>
 	<key>NoSyncTimeOfLastPromo</key>
-	<real>459156220.48822099</real>
+	<real>460712934.53974402</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>459379496.534778</real>
+	<real>460712934.53994602</real>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -1611,7 +1605,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-  <string>/Users/jonan/src/dotfiles/iterm</string>
+	<string>/Users/jscheffler/src/dotfiles/iterm</string>
 	<key>PromptOnQuit</key>
 	<true/>
 	<key>QuitWhenAllWindowsClosed</key>
@@ -1627,7 +1621,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-07-26T05:30:48Z</date>
+	<date>2015-08-08T07:33:43Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
