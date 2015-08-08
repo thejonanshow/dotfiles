@@ -1,4 +1,5 @@
 # Directories
+alias s 'cd ~/src'
 alias code 'cd ~/code'
 alias agent 'cd ~/code/new_relic/ruby_agent'
 alias play 'cd ~/code/new_relic/playground'
