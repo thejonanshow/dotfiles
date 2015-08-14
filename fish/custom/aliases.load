@@ -1,4 +1,6 @@
 # Directories
+alias b 'cd ~/src/our-boxen'
+alias d 'cd ~/src/dotfiles'
 alias s 'cd ~/src'
 alias code 'cd ~/code'
 alias agent 'cd ~/code/new_relic/ruby_agent'
@@ -30,9 +32,6 @@ alias gd- 'git diff --cached'
 alias gt 'git log --tags --simplify-by-decoration --pretty="format:%ai %d" '
 alias gp 'git pull --rebase'
 
-function gco
-  git checkout $argv
-end
 alias freshmasterflash='git fetch upstream master -v; git rebase upstream/master -v; git push origin master -v'
 alias freshtrunkflash='git fetch upstream trunk -v; git rebase upstream/trunk -v; git push origin trunk -v'
 
@@ -54,30 +53,3 @@ alias migrate "bundle exec rake db:migrate"
 alias start_sphinx "searchd -c config/sphinx-dev/sphinx.dev.conf"
 alias stop_sphinx "searchd -c config/sphinx-dev/sphinx.dev.conf --stop"
 alias be "bundle exec"
-# alias server 'ruby -rrack -e "include Rack;Handler::Thin.run Builder.new{run Directory.new %q[]}"'
-
-# Editing
-function ali
-  vim ~/src/dotfiles/fish/custom/aliases.load
-  . ~/src/dotfiles/fish/custom/aliases.load
-end
-
-function en
-  vim ~/src/dotfiles/fish/custom/environment.load
-  . ~/src/dotfiles/fish/custom/environment.load
-end
-
-function conf
-  vim ~/src/dotfiles/fish/config.fish
-  source ~/.config/fish/config.fish
-end
-
-function en
-  vim ~/src/dotfiles/fish/custom/environment.load
-  . ~/src/dotfiles/fish/custom/environment.load
-end
-
-function ge
-  vim ~/src/dotfiles/gitconfig
-  cp ~/src/dotfiles/gitconfig ~/.gitconfig
-end

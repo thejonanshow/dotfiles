@@ -1,0 +1,40 @@
+source ~/src/ion_client.fish
+
+function jonan
+  echo 'Hello World!'
+end
+
+function gco
+  git checkout $argv
+end
+
+# Editing
+function ali
+  vim ~/src/dotfiles/fish/custom/aliases.load
+  source ~/src/dotfiles/fish/custom/aliases.load
+end
+
+function en
+  vim ~/src/dotfiles/fish/custom/environment.load
+  source ~/src/dotfiles/fish/custom/environment.load
+end
+
+function conf
+  vim ~/src/dotfiles/fish/config.fish
+  source ~/.config/fish/config.fish
+end
+
+function en
+  vim ~/src/dotfiles/fish/custom/environment.load
+  source ~/src/dotfiles/fish/custom/environment.load
+end
+
+function ge
+  vim ~/src/dotfiles/gitconfig
+  cp ~/src/dotfiles/gitconfig ~/.gitconfig
+end
+
+function fun
+  vim ~/src/dotfiles/fish/custom/functions.load
+  source ~/src/dotfiles/fish/custom/functions.load
+end
