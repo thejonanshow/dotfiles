@@ -1,4 +1,5 @@
 # Shortcuts
+alias ~="cd ~"
 alias b="cd ~/src/our-boxen"
 alias d="cd ~/src/dotfiles"
 alias s="cd ~/src"

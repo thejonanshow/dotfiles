@@ -3,6 +3,10 @@
 for file in ~/.{extra,bash_prompt,bash_scripts,exports,aliases,functions}; do
   [ -r "$file" ] && source "$file"
 done
+
+for file in /usr/local/etc/bash_completion.d/{docker,docker-compose,git-completion.bash,tmux}; do
+  [ -r "$file" ] && source "$file"
+done
 unset file
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
