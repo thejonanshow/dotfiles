@@ -23,6 +23,7 @@ alias gs='git status'
 
 alias sudo='sudo '
 alias be='bundle exec'
+alias ruby-install='ruby-install --rubies-dir /opt/rubies/'
 alias server='ruby -rrack -e "include Rack;Handler::Thin.run Builder.new{run Directory.new %q[]}"'
 alias freshmasterflash='git fetch upstream master -v && git rebase upstream/master -v && git push origin -v'
 alias migrate="bundle exec rake db:migrate && bundle exec rake db:test:prepare"

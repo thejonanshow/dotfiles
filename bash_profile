@@ -1,10 +1,12 @@
-# Load ~/.extra, ~/.bash_prompt, ~/.exports, ~/.aliases and ~/.functions
-# ~/.extra can be used for settings you don’t want to commit
-for file in ~/.{extra,bash_prompt,bash_scripts,exports,aliases,functions}; do
+for file in ~/.{bash_prompt,bash_scripts,exports,aliases,functions}; do
   [ -r "$file" ] && source "$file"
 done
 
 for file in /usr/local/etc/bash_completion.d/{docker,docker-compose,git-completion.bash,tmux}; do
+  [ -r "$file" ] && source "$file"
+done
+
+for file in ~/.local_scripts/*; do
   [ -r "$file" ] && source "$file"
 done
 unset file
@@ -27,5 +29,8 @@ shopt -s cdspell
 
 # Add tab completion for `defaults read|write NSGlobalDomain`
 complete -W "NSGlobalDomain" defaults
+
+source /usr/local/share/chruby/chruby.sh
+chruby 2.2.2
 
 [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
