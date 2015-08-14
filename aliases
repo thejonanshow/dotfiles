@@ -1,58 +1,36 @@
-# Easier navigation: .., ..., ~ and -
-alias ..="cd .."
-alias ...="cd ../.."
-alias ~="cd ~" # `cd` is probably faster to type though
-alias -- -="cd -"
-
 # Shortcuts
-alias d="cd ~/Documents/Dropbox"
-alias p="cd ~/Projects"
-alias g="git"
-alias v="vim"
-alias m="mate ."
-alias rpm="cd ~/newrelic/rpm_site"
-alias core="cd ~/newrelic/rpm_site"
-alias agent="cd ~/newrelic/ruby_agent"
-alias play="cd ~/newrelic/playground"
-alias sup="cd ~/newrelic/support"
-alias code="cd ~/code"
-alias db="cd ~/Dropbox"
-alias rtest="PGUSER=rails PGHOST=/tmp rake test"
-
-# List all files colorized in long format, including dot files
-alias la="ls -Gla"
-
-# List only directories
-alias lsd='ls -l | grep "^d"'
-
-# Always use color output for `ls`
-if [[ "$OSTYPE" =~ ^darwin ]]; then
-  export CLICOLOR=1
-  export LSCOLORS='AxBxcxdxgxegedabagacad'
-	# alias ls="command ls -G"
-else
-	# alias ls="command ls --color"
-	export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:'
-fi
-
-# Enable aliases to be sudo’ed
+alias b="cd ~/src/our-boxen"
+alias d="cd ~/src/dotfiles"
+alias s="cd ~/src"
 alias sudo='sudo '
+alias ali="vim ~/.aliases; source ~/.bash_profile"
+alias fun="vim ~/.functions; source ~/.bash_profile"
+alias conf="vim ~/.bash_profile; source ~/.bash_profile"
+alias exp="vim ~/.exports; source ~/.bash_profile"
+alias psh="cd ~/src/powerline-shell; vim config.py; ./install.py; git add config.py; git commit -am 'Update config.py'; git push -u; cp powerline-shell.py ~/src/dotfiles/bin/powerline-shell.py; cd -"
+alias box="vim -O ~/src/our-boxen/hiera/users/1337807.yaml ~/src/our-boxen/modules/people/manifests/1337807.pp"
 
-# Get OS X Software Updates, update Homebrew itself, and upgrade installed Homebrew packages
-alias update='sudo softwareupdate -i -a; brew update; brew upgrade'
+alias ga='git add'
+alias gb='git branch'
+alias gba='git branch -a'
+alias gc='git commit'
+alias gco='git checkout'
+alias gd='git diff'
+alias gd-='git diff --cached'
+alias gh='git push -u'
+alias gl='git pull'
+alias gs='git status'
 
-# IP addresses
+alias be='bundle exec'
+alias server='ruby -rrack -e "include Rack;Handler::Thin.run Builder.new{run Directory.new %q[]}"'
+alias freshmasterflash='git fetch upstream master -v && git rebase upstream/master -v && git push origin -v'
+alias migrate="bundle exec rake db:migrate && bundle exec rake db:test:prepare"
+
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en1"
-alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
+alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1';"
 
-# Enhanced WHOIS lookups
-alias whois="whois -h whois-servers.net"
-
-# Flush Directory Service cache
 alias flush="dscacheutil -flushcache"
 
-# View HTTP traffic
 alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 
@@ -99,40 +77,5 @@ alias plistbuddy="/usr/libexec/PlistBuddy"
 
 # One of @janmoesen’s ProTip™s
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
-	alias "$method"="lwp-request -m '$method'"
+  alias "$method"="lwp-request -m '$method'"
 done
-
-# Stuff I never really use but cannot delete either because of http://xkcd.com/530/
-alias stfu="osascript -e 'set volume output muted true'"
-alias pumpitup="osascript -e 'set volume 10'"
-alias hax="growlnotify -a 'Activity Monitor' 'System error' -m 'WTF R U DOIN'"
-
-# Ruby version shortcuts
-alias 186="rbenv shell 1.8.6-p420 && ruby -v"
-alias 187="rbenv shell 1.8.7-p371 && ruby -v"
-alias 191="rbenv shell 1.9.1-p430 && ruby -v"
-alias 192="rbenv shell 1.9.2-p320 && ruby -v"
-alias 193="rbenv shell 1.9.3-p327 && ruby -v"
-alias 200="rbenv shell 2.0.0-p195 && ruby -v"
-alias j17="rbenv shell jruby-1.7.1 && ruby -v"
-alias ree="rbenv shell ree-1.8.7-2012.02 && ruby -v"
-
-alias migrate="bundle exec rake db:migrate && bundle exec rake db:test:prepare"
-
-alias start_sphinx="searchd -c config/sphinx-dev/sphinx.dev.conf"
-alias stop_sphinx="searchd -c config/sphinx-dev/sphinx.dev.conf --stop"
-
-alias prof='vim ~/.bash_profile && source ~/.bash_profile'
-alias ali='vim ~/.aliases && source ~/.bash_profile'
-alias func='vim ~/.functions && source ~/.bash_profile'
-
-alias gs='git status'
-alias gc='git commit'
-alias ga='git add'
-alias gco='git checkout'
-
-alias be='bundle exec'
-alias bustest='NO_INTERNET=true rake test'
-alias multi='rvm-auto-ruby -S'
-alias server='ruby -rrack -e "include Rack;Handler::Thin.run Builder.new{run Directory.new %q[]}"'
-alias freshmasterflash='git fetch upstream master -v && git rebase upstream/master -v && git push origin -v'

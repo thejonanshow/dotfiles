@@ -1,9 +1,3 @@
-source ~/src/ion_client.fish
-
-function jonan
-  echo 'Hello World!'
-end
-
 function gco
   git checkout $argv
 end

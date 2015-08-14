@@ -18,5 +18,5 @@
 Installation:
 ```
 git clone git@github.com:1337807/dotfiles.git ~/dotfiles
-cd ~/dotfiles && rake install:fish
+cd ~/dotfiles && rake install
 ```

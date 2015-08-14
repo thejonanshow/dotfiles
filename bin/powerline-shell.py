@@ -1,12 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 
 import argparse
 import os
 import sys
 
 def warn(msg):
-    print '[powerline-bash] ', msg
+    print('[powerline-bash] ', msg)
 
 class Powerline:
     symbols = {
@@ -61,7 +62,7 @@ class Powerline:
         return self.color('48', code)
 
     def append(self, content, fg, bg, separator=None, separator_fg=None):
-        self.segments.append((content, fg, bg, 
+        self.segments.append((content, fg, bg,
             separator if separator is not None else self.separator,
             separator_fg if separator_fg is not None else bg))
 
@@ -88,21 +89,26 @@ def get_valid_cwd():
         We return the original cwd because the shell still considers that to be
         the working directory, so returning our guess will confuse people
     """
+    # Prefer the PWD environment variable. Python's os.getcwd function follows
+    # symbolic links, which is undesirable. But if PWD is not set then fall
+    # back to this func
     try:
-        cwd = os.getcwd()
+        cwd = os.getenv('PWD') or os.getcwd()
     except:
-        cwd = os.getenv('PWD')  # This is where the OS thinks we are
-        parts = cwd.split(os.sep)
-        up = cwd
-        while parts and not os.path.exists(up):
-            parts.pop()
-            up = os.sep.join(parts)
-        try:
-            os.chdir(up)
-        except:
-            warn("Your current directory is invalid.")
-            sys.exit(1)
-        warn("Your current directory is invalid. Lowest valid directory: " + up)
+        warn("Your current directory is invalid. If you open a ticket at " +
+            "https://github.com/milkbikis/powerline-shell/issues/new " +
+            "we would love to help fix the issue.")
+        sys.stdout.write("> ")
+        sys.exit(1)
+
+    parts = cwd.split(os.sep)
+    up = cwd
+    while parts and not os.path.exists(up):
+        parts.pop()
+        up = os.sep.join(parts)
+    if cwd != up:
+        warn("Your current directory is invalid. Lowest valid directory: "
+            + up)
     return cwd
 
 
@@ -179,11 +185,7 @@ class Color(DefaultColor):
     pass
 
 
-class DefaultColor:
-    """
-    This class should have the default colors for every segment.
-    Please test every new segment with this theme first.
-    """
+class Color(DefaultColor):
     USERNAME_FG = 250
     USERNAME_BG = 240
     USERNAME_ROOT_BG = 124
@@ -192,7 +194,7 @@ class DefaultColor:
     HOSTNAME_BG = 238
 
     HOME_SPECIAL_DISPLAY = True
-    HOME_BG = 31  # blueish
+    HOME_BG = 63  # purple, was 31
     HOME_FG = 15  # white
     PATH_BG = 237  # dark grey
     PATH_FG = 250  # light grey
@@ -207,7 +209,7 @@ class DefaultColor:
 
     REPO_CLEAN_BG = 148  # a light green color
     REPO_CLEAN_FG = 0  # black
-    REPO_DIRTY_BG = 161  # pink/red
+    REPO_DIRTY_BG = 1 # red, was 161 pink/red
     REPO_DIRTY_FG = 15  # white
 
     JOBS_FG = 39
@@ -215,7 +217,7 @@ class DefaultColor:
 
     CMD_PASSED_BG = 236
     CMD_PASSED_FG = 15
-    CMD_FAILED_BG = 161
+    CMD_FAILED_BG = 1 # red, was 161 pink/red
     CMD_FAILED_FG = 15
 
     SVN_CHANGES_BG = 148
@@ -224,58 +226,43 @@ class DefaultColor:
     VIRTUAL_ENV_BG = 35  # a mid-tone green
     VIRTUAL_ENV_FG = 00
 
-class Color(DefaultColor):
-    """
-    This subclass is required when the user chooses to use 'default' theme.
-    Because the segments require a 'Color' class for every theme.
-    """
-    pass
+
+import subprocess
 
 
+def add_ruby_version_segment():
+    try:
+        p1 = subprocess.Popen(["ruby", "-v"], stdout=subprocess.PIPE)
+        p2 = subprocess.Popen(["sed", "s/ (.*//"], stdin=p1.stdout, stdout=subprocess.PIPE)
+        version = p2.communicate()[0].rstrip()
+        if os.environ.has_key("GEM_HOME"):
+          gem = os.environ["GEM_HOME"].split("@")
+          if len(gem) > 1:
+            version += " " + gem[1]
+        powerline.append(" " + version, 15, Color.HOME_BG)
+    except OSError:
+        return
 
-def add_username_segment():
-    import os
+add_ruby_version_segment()
+
+
+def add_term_title_segment():
+    term = os.getenv('TERM')
+    if not (('xterm' in term) or ('rxvt' in term)):
+        return
+
     if powerline.args.shell == 'bash':
-        user_prompt = ' \\u '
+        set_title = '\\[\\e]0;\\u@\\h: \\w\\a\\]'
     elif powerline.args.shell == 'zsh':
-        user_prompt = ' %n '
+        set_title = '\033]0;%n@%m: %~\007'
     else:
-        user_prompt = ' %s ' % os.getenv('USER')
+        import socket
+        set_title = '\033]0;%s@%s: %s\007' % (os.getenv('USER'), socket.gethostname().split('.')[0], powerline.cwd or os.getenv('PWD'))
 
-    if os.getenv('USER') == 'root':
-        bgcolor = Color.USERNAME_ROOT_BG
-    else:
-        bgcolor = Color.USERNAME_BG
-
-    powerline.append(user_prompt, Color.USERNAME_FG, bgcolor)
-
-add_username_segment()
+    powerline.append(set_title, None, None, '')
 
 
-def add_hostname_segment():
-    if powerline.args.colorize_hostname:
-        from lib.color_compliment import stringToHashToColorAndOpposite
-        from lib.colortrans import rgb2short
-        from socket import gethostname
-        hostname = gethostname()
-        FG, BG = stringToHashToColorAndOpposite(hostname)
-        FG, BG = (rgb2short(*color) for color in [FG, BG])
-        host_prompt = ' %s ' % hostname.split('.')[0]
-
-        powerline.append(host_prompt, FG, BG)
-    else:
-        if powerline.args.shell == 'bash':
-            host_prompt = ' \\h '
-        elif powerline.args.shell == 'zsh':
-            host_prompt = ' %m '
-        else:
-            import socket
-            host_prompt = ' %s ' % socket.gethostname().split('.')[0]
-
-        powerline.append(host_prompt, Color.HOSTNAME_FG, Color.HOSTNAME_BG)
-
-
-add_hostname_segment()
+add_term_title_segment()
 
 
 import os
@@ -325,17 +312,6 @@ def add_cwd_segment():
         powerline.append(' %s ' % names[-1], Color.CWD_FG, Color.PATH_BG)
 
 add_cwd_segment()
-
-
-import os
-
-def add_read_only_segment():
-    cwd = powerline.cwd or os.getenv('PWD')
-
-    if not os.access(cwd, os.W_OK):
-        powerline.append(' %s ' % powerline.lock, Color.READONLY_FG, Color.READONLY_BG)
-
-add_read_only_segment()
 
 
 import re
@@ -402,6 +378,17 @@ except subprocess.CalledProcessError:
 
 
 import os
+
+def add_read_only_segment():
+    cwd = powerline.cwd or os.getenv('PWD')
+
+    if not os.access(cwd, os.W_OK):
+        powerline.append(' %s ' % powerline.lock, Color.READONLY_FG, Color.READONLY_BG)
+
+add_read_only_segment()
+
+
+import os
 import re
 import subprocess
 
@@ -419,7 +406,7 @@ add_jobs_segment()
 def add_root_indicator_segment():
     root_indicators = {
         'bash': ' \\$ ',
-        'zsh': ' \\$ ',
+        'zsh': ' %# ',
         'bare': ' $ ',
     }
     bg = Color.CMD_PASSED_BG
@@ -430,6 +417,16 @@ def add_root_indicator_segment():
     powerline.append(root_indicators[powerline.args.shell], fg, bg)
 
 add_root_indicator_segment()
+
+
+def add_exit_code_segment():
+    if powerline.args.prev_error == 0:
+        return
+    fg = Color.CMD_FAILED_FG
+    bg = Color.CMD_FAILED_BG
+    powerline.append(str(powerline.args.prev_error), fg, bg)
+
+add_exit_code_segment()
 
 
 sys.stdout.write(powerline.draw())
