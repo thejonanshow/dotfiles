@@ -1,15 +1,14 @@
-# Shortcuts
 alias ~="cd ~"
 alias b="cd ~/src/our-boxen"
 alias d="cd ~/src/dotfiles"
 alias s="cd ~/src"
-alias sudo='sudo '
-alias ali="vim ~/.aliases; source ~/.bash_profile"
-alias fun="vim ~/.functions; source ~/.bash_profile"
-alias conf="vim ~/.bash_profile; source ~/.bash_profile"
-alias exp="vim ~/.exports; source ~/.bash_profile"
-alias psh="cd ~/src/powerline-shell; vim config.py; ./install.py; git add config.py; git commit -am 'Update config.py'; git push -u; cp powerline-shell.py ~/src/dotfiles/bin/powerline-shell.py; cd -"
-alias box="vim -O ~/src/our-boxen/hiera/users/1337807.yaml ~/src/our-boxen/modules/people/manifests/1337807.pp"
+
+alias ali="cd ~/src/dotfiles; vim ~/.aliases; source ~/.bash_profile; cd - > /dev/null"
+alias fun="cd ~/src/dotfiles; vim ~/.functions; source ~/.bash_profile; cd - > /dev/null"
+alias conf="cd ~/src/dotfiles; vim ~/.bash_profile; source ~/.bash_profile; cd - > /dev/null"
+alias exp="cd ~/src/dotfiles; vim ~/.exports; source ~/.bash_profile; cd - > /dev/null"
+alias psh="cd ~/src/powerline-shell; vim config.py; ./install.py; git add config.py; git commit -am 'Update config.py'; git push -u; cp powerline-shell.py ~/src/dotfiles/bin/powerline-shell.py; cd - > /dev/null"
+alias box="cd ~/src/our-boxen; vim -O ~/src/our-boxen/hiera/users/1337807.yaml ~/src/our-boxen/modules/people/manifests/1337807.pp; cd -> /dev/null"
 
 alias ga='git add'
 alias gb='git branch'
@@ -22,18 +21,17 @@ alias gh='git push -u'
 alias gl='git pull'
 alias gs='git status'
 
+alias sudo='sudo '
 alias be='bundle exec'
 alias server='ruby -rrack -e "include Rack;Handler::Thin.run Builder.new{run Directory.new %q[]}"'
 alias freshmasterflash='git fetch upstream master -v && git rebase upstream/master -v && git push origin -v'
 alias migrate="bundle exec rake db:migrate && bundle exec rake db:test:prepare"
 
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1';"
-
 alias flush="dscacheutil -flushcache"
-
 alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1';"
 
 # Canonical hex dump; some systems have this symlinked
 type -t hd > /dev/null || alias hd="hexdump -C"

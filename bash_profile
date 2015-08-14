@@ -27,3 +27,5 @@ shopt -s cdspell
 
 # Add tab completion for `defaults read|write NSGlobalDomain`
 complete -W "NSGlobalDomain" defaults
+
+[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
