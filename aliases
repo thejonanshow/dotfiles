@@ -2,6 +2,7 @@ alias ~="cd ~"
 alias b="cd ~/src/our-boxen"
 alias d="cd ~/src/dotfiles"
 alias s="cd ~/src"
+alias h="heroku"
 
 alias ali="cd ~/src/dotfiles; vim ~/.aliases; source ~/.bash_profile; cd - > /dev/null"
 alias fun="cd ~/src/dotfiles; vim ~/.functions; source ~/.bash_profile; cd - > /dev/null"
