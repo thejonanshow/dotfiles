@@ -31,6 +31,9 @@ shopt -s cdspell
 complete -W "NSGlobalDomain" defaults
 
 source /usr/local/share/chruby/chruby.sh
-chruby 2.2.2
+chruby 2.3.1
+
+source /usr/local/bin/virtualenvwrapper.sh
+check_for_virtual_env
 
 [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh

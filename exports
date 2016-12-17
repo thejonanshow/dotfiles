@@ -29,3 +29,7 @@ export PROMPT_COMMAND="_update_ps1"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/src
+export ANDROID_HOME=/Users/jonan/Library/Android/sdk/

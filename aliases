@@ -5,11 +5,14 @@ alias s="cd ~/src"
 alias h="heroku"
 
 alias ali="cd ~/src/dotfiles; vim ~/.aliases; source ~/.bash_profile; cd - > /dev/null"
+alias td="vim ~/.todo"
+alias bl="vim ~/Dropbox/work/heroku/blog/"
 alias fun="cd ~/src/dotfiles; vim ~/.functions; source ~/.bash_profile; cd - > /dev/null"
 alias conf="cd ~/src/dotfiles; vim ~/.bash_profile; source ~/.bash_profile; cd - > /dev/null"
 alias exp="cd ~/src/dotfiles; vim ~/.exports; source ~/.bash_profile; cd - > /dev/null"
 alias psh="cd ~/src/powerline-shell; vim config.py; ./install.py; git add config.py; git commit -am 'Update config.py'; git push -u; cp powerline-shell.py ~/src/dotfiles/bin/powerline-shell.py; cd - > /dev/null"
-alias box="cd ~/src/our-boxen; vim -O ~/src/our-boxen/hiera/users/1337807.yaml ~/src/our-boxen/modules/people/manifests/1337807.pp; cd -> /dev/null"
+alias box="cd ~/src/our-boxen; vim -O ~/src/our-boxen/hiera/users/thejonanshow.yaml ~/src/our-boxen/modules/people/manifests/thejonanshow.pp; cd -> /dev/null"
+alias todo="vim ~/.todo.txt"
 
 alias ga='git add'
 alias gb='git branch'
@@ -21,6 +24,8 @@ alias gd-='git diff --cached'
 alias gh='git push -u'
 alias gl='git pull'
 alias gs='git status'
+
+alias hb="hub browse"
 
 alias sudo='sudo '
 alias be='bundle exec'
