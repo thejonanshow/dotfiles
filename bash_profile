@@ -2,7 +2,7 @@ for file in ~/.{bash_prompt,bash_scripts,exports,aliases,functions}; do
   [ -r "$file" ] && source "$file"
 done
 
-for file in /usr/local/etc/bash_completion.d/{docker,docker-compose,git-completion.bash,tmux}; do
+for file in /usr/local/etc/bash_completion.d/{git-completion.bash,tmux}; do
   [ -r "$file" ] && source "$file"
 done
 
@@ -30,7 +30,9 @@ shopt -s cdspell
 # Add tab completion for `defaults read|write NSGlobalDomain`
 complete -W "NSGlobalDomain" defaults
 
-source /usr/local/share/chruby/chruby.sh
-chruby 2.2.2
-
 [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
+
+export HEROKU_ORGANIZATION=dev-rel
+
+source /usr/local/opt/chruby/share/chruby/chruby.sh
+chruby 2.4.1

@@ -1,7 +1,14 @@
 alias ~="cd ~"
-alias b="cd ~/src/our-boxen"
+alias b="bundle"
 alias d="cd ~/src/dotfiles"
 alias s="cd ~/src"
+alias h="heroku"
+alias hs="heroku sudo"
+alias hc="heroku run rails console"
+alias ch="source /usr/local/opt/chruby/share/chruby/chruby.sh"
+alias dm="docker-machine"
+alias dock="eval \"$(docker-machine env default)\""
+alias v="vim ."
 
 alias ali="cd ~/src/dotfiles; vim ~/.aliases; source ~/.bash_profile; cd - > /dev/null"
 alias fun="cd ~/src/dotfiles; vim ~/.functions; source ~/.bash_profile; cd - > /dev/null"
@@ -9,7 +16,9 @@ alias conf="cd ~/src/dotfiles; vim ~/.bash_profile; source ~/.bash_profile; cd -
 alias exp="cd ~/src/dotfiles; vim ~/.exports; source ~/.bash_profile; cd - > /dev/null"
 alias psh="cd ~/src/powerline-shell; vim config.py; ./install.py; git add config.py; git commit -am 'Update config.py'; git push -u; cp powerline-shell.py ~/src/dotfiles/bin/powerline-shell.py; cd - > /dev/null"
 alias box="cd ~/src/our-boxen; vim -O ~/src/our-boxen/hiera/users/1337807.yaml ~/src/our-boxen/modules/people/manifests/1337807.pp; cd -> /dev/null"
+alias vc="cd ~/.vim; vim .; cd - > /dev/null"
 
+alias g='git'
 alias ga='git add'
 alias gb='git branch'
 alias gba='git branch -a'
@@ -17,13 +26,20 @@ alias gc='git commit'
 alias gco='git checkout'
 alias gd='git diff'
 alias gd-='git diff --cached'
+alias gds='git diff --stat'
+alias gds-='git diff --cached --stat'
 alias gh='git push -u'
 alias gl='git pull'
 alias gs='git status'
+alias gap='git add . -p'
+alias igun='git status --porcelain | grep '^??' | cut -c4- >> test '
+alias hb='hub browse'
+
+alias pr='git pull-request -o'
 
 alias sudo='sudo '
 alias be='bundle exec'
-alias ruby-install='ruby-install --rubies-dir /opt/rubies/'
+alias ruby-install='ruby-install'
 alias server='ruby -rrack -e "include Rack;Handler::Thin.run Builder.new{run Directory.new %q[]}"'
 alias freshmasterflash='git fetch upstream master -v && git rebase upstream/master -v && git push origin -v'
 alias migrate="bundle exec rake db:migrate && bundle exec rake db:test:prepare"

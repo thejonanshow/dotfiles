@@ -35,6 +35,7 @@ pickle-email-*.html
 .project
 tags
 development.db
+tmp/
 
 # Unit test / coverage reports
 htmlcov/
