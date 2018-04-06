@@ -31,3 +31,6 @@ export PROMPT_COMMAND="_update_ps1"
 export PATH="/usr/local/heroku/bin:$PATH"
 export GOPATH="/Users/jscheffler"
 export GO15VENDOREXPERIMENT=1
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/src
+export ANDROID_HOME=/Users/jonan/Library/Android/sdk/

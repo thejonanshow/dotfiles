@@ -60,3 +60,22 @@ function codepoint() {
   perl -e "use utf8; print sprintf('U+%04X', ord(\"$@\"))"
     echo # newline
 }
+
+function check_for_virtual_env {
+  [ -d .git ] || git rev-parse --git-dir &> /dev/null
+
+  if [ $? == 0 ]; then
+    local ENV_NAME=`basename \`pwd\``
+
+    if [ "${VIRTUAL_ENV##*/}" != $ENV_NAME ] && [ -e $WORKON_HOME/$ENV_NAME/bin/activate ]; then
+      workon $ENV_NAME && export CD_VIRTUAL_ENV=$ENV_NAME
+    fi
+  elif [ $CD_VIRTUAL_ENV ]; then
+    deactivate && unset CD_VIRTUAL_ENV
+  fi
+}
+
+# Check for a virtual_env whenever we enter a project
+function cd {
+  builtin cd "$@" && check_for_virtual_env
+}

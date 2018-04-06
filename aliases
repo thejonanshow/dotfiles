@@ -1,54 +1,52 @@
-alias ~="cd ~"
+alias ali="cd ~/src/dotfiles; vim ~/.aliases; source ~/.bash_profile; cd - > /dev/null"
 alias b="bundle"
-alias d="cd ~/src/dotfiles"
-alias s="cd ~/src"
-alias h="heroku"
-alias hs="heroku sudo"
-alias hc="heroku run rails console"
+alias be='bundle exec'
+alias bl="vim ~/Dropbox/work/heroku/blog/"
+alias box="cd ~/src/our-boxen; vim -O ~/src/our-boxen/hiera/users/thejonanshow.yaml ~/src/our-boxen/modules/people/manifests/thejonanshow.pp; cd -> /dev/null"
 alias ch="source /usr/local/opt/chruby/share/chruby/chruby.sh"
+alias conf="cd ~/src/dotfiles; vim ~/.bash_profile; source ~/.bash_profile; cd - > /dev/null"
+alias d="cd ~/src/dotfiles"
 alias dm="docker-machine"
 alias dock="eval \"$(docker-machine env default)\""
-alias v="vim ."
-
-alias ali="cd ~/src/dotfiles; vim ~/.aliases; source ~/.bash_profile; cd - > /dev/null"
-alias fun="cd ~/src/dotfiles; vim ~/.functions; source ~/.bash_profile; cd - > /dev/null"
-alias conf="cd ~/src/dotfiles; vim ~/.bash_profile; source ~/.bash_profile; cd - > /dev/null"
 alias exp="cd ~/src/dotfiles; vim ~/.exports; source ~/.bash_profile; cd - > /dev/null"
-alias psh="cd ~/src/powerline-shell; vim config.py; ./install.py; git add config.py; git commit -am 'Update config.py'; git push -u; cp powerline-shell.py ~/src/dotfiles/bin/powerline-shell.py; cd - > /dev/null"
-alias box="cd ~/src/our-boxen; vim -O ~/src/our-boxen/hiera/users/1337807.yaml ~/src/our-boxen/modules/people/manifests/1337807.pp; cd -> /dev/null"
-alias vc="cd ~/.vim; vim .; cd - > /dev/null"
-
+alias flush="dscacheutil -flushcache"
+alias freshmasterflash='git fetch upstream master -v && git rebase upstream/master -v && git push origin -v'
+alias fun="cd ~/src/dotfiles; vim ~/.functions; source ~/.bash_profile; cd - > /dev/null"
 alias g='git'
 alias ga='git add'
+alias gap='git add . -p'
 alias gb='git branch'
 alias gba='git branch -a'
 alias gc='git commit'
 alias gco='git checkout'
-alias gd='git diff'
 alias gd-='git diff --cached'
-alias gds='git diff --stat'
+alias gd='git diff'
 alias gds-='git diff --cached --stat'
+alias gds='git diff --stat'
 alias gh='git push -u'
 alias gl='git pull'
 alias gs='git status'
-alias gap='git add . -p'
-alias igun='git status --porcelain | grep '^??' | cut -c4- >> test '
+alias h="heroku"
 alias hb='hub browse'
-
-alias pr='git pull-request -o'
-
-alias sudo='sudo '
-alias be='bundle exec'
-alias ruby-install='ruby-install'
-alias server='ruby -rrack -e "include Rack;Handler::Thin.run Builder.new{run Directory.new %q[]}"'
-alias freshmasterflash='git fetch upstream master -v && git rebase upstream/master -v && git push origin -v'
-alias migrate="bundle exec rake db:migrate && bundle exec rake db:test:prepare"
-
-alias flush="dscacheutil -flushcache"
-alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
+alias hc="heroku run rails console"
+alias hs="heroku sudo"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
+alias igun='git status --porcelain | grep '^??' | cut -c4- >> test '
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1';"
+alias migrate="bundle exec rake db:migrate && bundle exec rake db:test:prepare"
+alias pr='git pull-request -o'
+alias psh="cd ~/src/powerline-shell; vim config.py; ./install.py; git add config.py; git commit -am 'Update config.py'; git push -u; cp powerline-shell.py ~/src/dotfiles/bin/powerline-shell.py; cd - > /dev/null"
+alias ruby-install='ruby-install'
+alias s="cd ~/src"
+alias server='ruby -rrack -e "include Rack;Handler::Thin.run Builder.new{run Directory.new %q[]}"'
+alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
+alias sudo='sudo '
+alias td="vim ~/.todo"
+alias todo="vim ~/.todo.txt"
+alias v="vim ."
+alias vc="cd ~/.vim; vim .; cd - > /dev/null"
+alias ~="cd ~"
 
 # Canonical hex dump; some systems have this symlinked
 type -t hd > /dev/null || alias hd="hexdump -C"
