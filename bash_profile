@@ -5,7 +5,7 @@ for file in ~/.{bash_prompt,bash_scripts,exports,aliases,functions}; do
   [ -r "$file" ] && source "$file"
 done
 
-for file in /usr/local/etc/bash_completion.d/{docker,docker-compose,git-completion.bash,tmux}; do
+for file in /usr/local/etc/bash_completion.d/{git-completion.bash,tmux}; do
   [ -r "$file" ] && source "$file"
 done
 
@@ -54,4 +54,5 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
+export HEROKU_ORGANIZATION=dev-rel
 export PATH="$HOME/.cargo/bin:/usr/local/sbin:$PATH"
