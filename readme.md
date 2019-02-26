@@ -17,6 +17,6 @@
 
 Installation:
 ```
-git clone git@github.com:1337807/dotfiles.git ~/dotfiles
-cd ~/dotfiles && rake install
+git clone git@github.com:thejonanshow/dotfiles.git ~/src/dotfiles
+cd ~/src/dotfiles && rake install
 ```
