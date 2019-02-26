@@ -2,7 +2,7 @@ require 'rake'
 
 @dotfiles_dir = `pwd`.strip
 @home_dir = `echo $HOME`.strip
-@exclusions = %w(rake fish readme.md iterm bin)
+@exclusions = %w(fish readme.md iterm bin rakefile brewfile)
 @bashfiles = %w(bash_profile bash_prompt bash_scripts exports functions inputrc)
 
 namespace :install do
