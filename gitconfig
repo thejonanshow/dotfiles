@@ -22,7 +22,4 @@ whitespace = fix
 
 [core]
 whitespace = trailing-space,space-before-tab
-excludesfile = /opt/boxen/config/git/gitignore
-
-[credential]
-helper = /opt/boxen/bin/boxen-git-credential
+	excludesfile = /Users/jscheffler/.gitignore

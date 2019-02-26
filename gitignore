@@ -36,6 +36,9 @@ pickle-email-*.html
 tags
 development.db
 
+# Rails
+.env
+
 # Unit test / coverage reports
 htmlcov/
 .tox/
@@ -152,3 +155,7 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# Vim
+.swp
+*.swp
