@@ -27,9 +27,15 @@ Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'wincent/command-t'
 Plug 'Tarrasch/zsh-autoenv'
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 call plug#end()
 
 silent! colorscheme spacegray
+
+set encoding=UTF-8
+let g:webdevicons_conceal_nerdtree_brackets = 0
+set t_Co=256
 
 set tabstop=4 softtabstop=0 expandtab shiftwidth=2 smarttab
 set backspace=indent,eol,start
