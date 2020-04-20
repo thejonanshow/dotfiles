@@ -2,16 +2,16 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export ZSH="$HOME/.oh-my-zsh"
-source $ZSH/oh-my-zsh.sh
-
 source ~/.aliases
 source ~/.global.env
 source ~/.rubysetup
-source ~/.completion
 
-plugins=(git docker docker-compose)
+export ZSH="$HOME/.oh-my-zsh"
+source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+source ~/.completion
+plugins=(git docker docker-compose)
 
 export RUBYOPT="-W:no-deprecated -W:no-experimental"
 export EDITOR="vim"

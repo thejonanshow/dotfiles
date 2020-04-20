@@ -1,5 +1,7 @@
 alias s="cd ~/src"
 alias dk="cd ~/docker"
+alias dot="cd ~/src/dotfiles"
+
 alias k="kubectl"
 alias n="cd ~/src/notes"
 alias be="bundle exec"
