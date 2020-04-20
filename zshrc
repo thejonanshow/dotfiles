@@ -8,9 +8,9 @@ source $ZSH/oh-my-zsh.sh
 source ~/.aliases
 source ~/.global.env
 source ~/.rubysetup
+source ~/.completion
 
 plugins=(git docker docker-compose)
-source <(kubectl completion zsh)
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export RUBYOPT="-W:no-deprecated -W:no-experimental"
