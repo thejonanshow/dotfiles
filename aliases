@@ -1,7 +1,5 @@
 alias s="cd ~/src"
 alias dk="cd ~/docker"
-alias ali="vim ~/.aliases; source ~/.aliases"
-alias z="vim ~/.zshrc; source ~/.zshrc"
 alias k="kubectl"
 alias n="cd ~/src/notes"
 alias be="bundle exec"
@@ -12,6 +10,9 @@ alias ag='ag --path-to-ignore ~/.agignore'
 
 alias v="vim ."
 alias vv="vim ~/.vimrc"
+alias ali="vim ~/.aliases; source ~/.aliases"
+alias z="vim ~/.zshrc; source ~/.zshrc"
+alias e="vim ~/.global.env; source ~/.global.env"
 
 alias gs="git status"
 alias ga="git add"
@@ -21,7 +22,6 @@ alias gco="git checkout"
 
 alias de="docker exec -it"
 alias ds="docker_shell"
-alias pg12test="docker run -d -e POSTGRES_PASSWORD=password -v /Users/jonan/src/timescaledb-private:/timescaledb-private -p 5432:5432 postgres:12.2-alpine"
 
 function docker_shell() {
   last_id=$(docker container ls -lq)

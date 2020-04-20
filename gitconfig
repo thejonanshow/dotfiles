@@ -1,3 +1,5 @@
 [user]
 name = Jonan Scheffler
 email = jonanscheffler@gmail.com
+[core]
+	excludesfile = /Users/jonan/.global.gitignore
