@@ -1,6 +1,0 @@
-log/*
-tmp/*
-vendor/*
-tags
-node_modules
-.git
