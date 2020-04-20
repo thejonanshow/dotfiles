@@ -19,6 +19,7 @@ alias conf="vim ~/src/dotfiles"
 
 alias gs="git status"
 alias ga="git add"
+alias gc="git commit"
 alias gd="git diff"
 alias gd-="git diff --cached"
 alias gco="git checkout"
