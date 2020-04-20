@@ -23,8 +23,13 @@ alias gco="git checkout"
 
 alias de="docker exec -it"
 alias ds="docker_shell"
+alias dr="docker_run"
 
 function docker_shell() {
   last_id=$(docker container ls -lq)
   docker exec -it $last_id /bin/bash
+}
+
+function docker_run() {
+  docker run -it --rm $(docker images | awk '{print $3}' | awk 'NR==2') /bin/zsh
 }
