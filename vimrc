@@ -34,9 +34,9 @@ call plug#end()
 silent! colorscheme spacegray
 
 set encoding=UTF-8
-let g:webdevicons_conceal_nerdtree_brackets = 1
 set t_Co=256
-let NERDTreeHighlightCursorline = 0
+:let g:webdevicons_conceal_nerdtree_brackets = 1
+:let NERDTreeHighlightCursorline = 0
 
 set tabstop=4 softtabstop=0 expandtab shiftwidth=2 smarttab
 set backspace=indent,eol,start

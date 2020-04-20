@@ -7,7 +7,6 @@ alias n="cd ~/src/notes"
 alias be="bundle exec"
 alias tb="cd /Users/jonan/src/timeburger"
 alias pdxrb="cd /Users/jonan/dropboxpersonal/2020/pdxrb"
-alias python="/usr/local/bin/python3"
 alias ag='ag --path-to-ignore ~/.agignore'
 
 alias v="vim ."
