@@ -13,6 +13,7 @@ alias vv="vim ~/.vimrc"
 alias ali="vim ~/.aliases; source ~/.aliases"
 alias z="vim ~/.zshrc; source ~/.zshrc"
 alias e="vim ~/.global.env; source ~/.global.env"
+alias conf="vim ~/src/dotfiles"
 
 alias gs="git status"
 alias ga="git add"
