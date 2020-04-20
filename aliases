@@ -1,0 +1,29 @@
+alias s="cd ~/src"
+alias dk="cd ~/docker"
+alias ali="vim ~/.aliases; source ~/.aliases"
+alias z="vim ~/.zshrc; source ~/.zshrc"
+alias k="kubectl"
+alias n="cd ~/src/notes"
+alias be="bundle exec"
+alias tb="cd /Users/jonan/src/timeburger"
+alias pdxrb="cd /Users/jonan/dropboxpersonal/2020/pdxrb"
+alias python="/usr/local/bin/python3"
+alias ag='ag --path-to-ignore ~/.agignore'
+
+alias v="vim ."
+alias vv="vim ~/.vimrc"
+
+alias gs="git status"
+alias ga="git add"
+alias gd="git diff"
+alias gd-="git diff --cached"
+alias gco="git checkout"
+
+alias de="docker exec -it"
+alias ds="docker_shell"
+alias pg12test="docker run -d -e POSTGRES_PASSWORD=password -v /Users/jonan/src/timescaledb-private:/timescaledb-private -p 5432:5432 postgres:12.2-alpine"
+
+function docker_shell() {
+  last_id=$(docker container ls -lq)
+  docker exec -it $last_id /bin/bash
+}
