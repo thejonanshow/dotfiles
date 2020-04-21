@@ -1,5 +1,13 @@
 [user]
-name = Jonan Scheffler
-email = jonanscheffler@gmail.com
+	name = Jonan Scheffler
+	email = jonanscheffler@gmail.com
 [core]
 	excludesfile = /Users/jonan/.global.gitignore
+[autotag]
+	sign = true
+[user]
+	signingkey = jonan@keybase.io
+[merge]
+	ff = false
+[pull]
+	ff = only

@@ -1,8 +1,11 @@
 :let mapleader = ","
 nmap <leader>e :e **/
 nmap <leader>v :vsp **/
+
 :autocmd!
 map <leader>d :NERDTreeToggle<CR>
+
+autocmd! bufwritepost $MYVIMRC source $MYVIMRC
 
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -33,11 +36,11 @@ call plug#end()
 
 silent! colorscheme spacegray
 
-set encoding=UTF-8
-set t_Co=256
 :let g:webdevicons_conceal_nerdtree_brackets = 1
 :let NERDTreeHighlightCursorline = 0
 
+set encoding=UTF-8
+set t_Co=256
 set tabstop=4 softtabstop=0 expandtab shiftwidth=2 smarttab
 set backspace=indent,eol,start
 set number
