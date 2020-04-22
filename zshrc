@@ -8,9 +8,9 @@ export EDITOR="vim"
 GPG_TTY=$(tty)
 export GPG_TTY
 
-source ~/.aliases
-source ~/.completion
-source ~/.global.env
-source ~/.p10k.zsh
-source ~/.plugins
-source ~/.rubysetup
+[[ ! -f ~/.aliases ]]    || source ~/.aliases
+[[ ! -f ~/.completion ]] || source ~/.completion
+[[ ! -f ~/.global.env ]] || source ~/.global.env
+[[ ! -f ~/.p10k.zsh ]]   || source ~/.p10k.zsh
+[[ ! -f ~/.plugins ]]    || source ~/.plugins
+[[ ! -f ~/.rubysetup ]]  || source ~/.rubysetup
