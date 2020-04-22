@@ -28,6 +28,7 @@ alias gt="git tag -a"
 alias de="docker exec -it"
 alias ds="docker_shell"
 alias dr="docker_run"
+alias dp="docker ps"
 
 function docker_shell() {
   last_id=$(docker container ls -lq)

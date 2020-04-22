@@ -11,7 +11,7 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 source ~/.completion
-plugins=(git docker docker-compose)
+plugins=(git docker docker-compose tmux)
 
 export RUBYOPT="-W:no-deprecated -W:no-experimental"
 export EDITOR="vim"
