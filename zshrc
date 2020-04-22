@@ -1,8 +1,8 @@
 export ZSH_THEME="powerlevel10k/powerlevel10k"
 export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
-export LC_ALL=C.UTF-8
-export LANG=C.UTF-8
+export LC_ALL=en_US.utf-8
+export LANG=en_US.utf-8
 
 export RUBYOPT="-W:no-deprecated -W:no-experimental"
 export EDITOR="vim"
