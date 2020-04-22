@@ -6,6 +6,7 @@ nmap <leader>v :vsp **/
 map <leader>d :NERDTreeToggle<CR>
 
 autocmd! bufwritepost $MYVIMRC source $MYVIMRC
+au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
 
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
