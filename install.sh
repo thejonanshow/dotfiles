@@ -1,5 +1,5 @@
 #!/bin/bash
-FILES=$(find . -type f -not -path "./.git/*" -not -path "./install.sh" -not -path "./*.swp" -exec basename '{} ' \;)
+FILES=$(find ~/src/dotfiles -maxdepth 1 -type f -not -path "/Users/jonan/src/install.sh" -not -path "*.sw*" -exec basename '{} ' \; | grep -vE '(install|README)')
 blue="\033[1;94m"
 yellow="\033[1;93m"
 red="\033[1;91m"
