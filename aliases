@@ -14,7 +14,11 @@ alias vv="vim ~/.vimrc"
 alias ali="vim ~/.aliases; source ~/.aliases"
 alias z="vim ~/.zshrc; source ~/.zshrc"
 alias e="vim ~/.global.env; source ~/.global.env"
+alias t="vim ~/.tmux.conf; tmux source ~/.tmux.conf"
+
 alias conf="vim ~/src/dotfiles"
+alias python="python3"
+alias pip="pip3"
 
 alias gs="git status"
 alias ga="git add"
@@ -24,11 +28,20 @@ alias gd-="git diff --cached"
 alias gdm="git diff master origin/master"
 alias gco="git checkout"
 alias gt="git tag -a"
+alias gic="git init; git add .; git commit -m 'Omnium rerum principia parva sunt.'"
+alias gp="git push origin master"
+
+alias hcp="hub create"
+alias hcp="hub create -p"
+alias hb="hub browse"
 
 alias de="docker exec -it"
 alias ds="docker_shell"
 alias dr="docker_run"
 alias dp="docker ps"
+
+alias tarc="tar_compress"
+alias tarx="tar_decompress"
 
 function docker_shell() {
   last_id=$(docker container ls -lq)
@@ -37,4 +50,12 @@ function docker_shell() {
 
 function docker_run() {
   docker run -it --rm $(docker images | awk '{print $3}' | awk 'NR==2') /bin/zsh
+}
+
+function tar_compress() {
+  tar -cvzf $1.tar.gz $1
+}
+
+function tar_decompress() {
+  tar -xvzf $1
 }
