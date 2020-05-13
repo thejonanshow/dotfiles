@@ -33,6 +33,9 @@ Plug 'wincent/command-t'
 Plug 'Tarrasch/zsh-autoenv'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'maxmellon/vim-jsx-pretty'
 call plug#end()
 
 silent! colorscheme spacegray
