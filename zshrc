@@ -3,7 +3,6 @@ export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 export LC_ALL=en_US.utf-8
 export LANG=en_US.utf-8
-
 export RUBYOPT="-W:no-deprecated -W:no-experimental"
 export EDITOR="vim"
 
@@ -16,3 +15,4 @@ export GPG_TTY
 [[ ! -f ~/.p10k.zsh ]]   || source ~/.p10k.zsh
 [[ ! -f ~/.plugins ]]    || source ~/.plugins
 [[ ! -f ~/.rubysetup ]]  || source ~/.rubysetup
+[[ ! -f ~/.pythonsetup ]]  || source ~/.pythonsetup
