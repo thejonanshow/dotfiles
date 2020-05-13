@@ -3,7 +3,7 @@ alias dk="cd ~/docker"
 alias dot="cd ~/src/dotfiles"
 
 alias k="kubectl"
-alias n="cd ~/src/notes"
+alias n="vim ~/notes"
 alias be="bundle exec"
 alias tb="cd /Users/jonan/src/timeburger"
 alias pdxrb="cd /Users/jonan/dropboxpersonal/2020/pdxrb"
@@ -15,6 +15,7 @@ alias ali="vim ~/.aliases; source ~/.aliases"
 alias z="vim ~/.zshrc; source ~/.zshrc"
 alias e="vim ~/.global.env; source ~/.global.env"
 alias t="vim ~/.tmux.conf; tmux source ~/.tmux.conf"
+alias ss="vim ~/.ssh/config"
 
 alias conf="vim ~/src/dotfiles"
 alias python="python3"
@@ -39,6 +40,8 @@ alias de="docker exec -it"
 alias ds="docker_shell"
 alias dr="docker_run"
 alias dp="docker ps"
+alias di="docker images"
+alias dl="docker logs"
 
 alias tarc="tar_compress"
 alias tarx="tar_decompress"
@@ -49,7 +52,7 @@ function docker_shell() {
 }
 
 function docker_run() {
-  docker run -it --rm $(docker images | awk '{print $3}' | awk 'NR==2') /bin/zsh
+  docker run -it --rm $(docker images | awk '{print $3}' | awk 'NR==2') /bin/sh
 }
 
 function tar_compress() {
