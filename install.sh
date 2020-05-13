@@ -2,7 +2,8 @@
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
 
-FILES=$(find ~/src/dotfiles -maxdepth 1 -type f -exec basename '{} ' \; | grep -vE '(install|README|swp|brewfile|Brewfile)')
+IGNORE="(install|README|swp|brewfile|Brewfile|.gitignore)"
+FILES=$(find ~/src/dotfiles -maxdepth 1 -type f -exec basename '{} ' \; | grep -vE $IGNORE)
 blue="\033[1;94m"
 yellow="\033[1;93m"
 red="\033[1;91m"
