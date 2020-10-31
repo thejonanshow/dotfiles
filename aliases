@@ -68,6 +68,8 @@ alias ff="rspec --next-failure"
 alias tarc="tar_compress"
 alias tarx="tar_decompress"
 
+alias fi="gem install -s $(fury_source)"
+
 function docker_shell() {
   last_id=$(docker container ls -lq)
   docker exec -it $last_id /bin/bash
@@ -83,4 +85,8 @@ function tar_compress() {
 
 function tar_decompress() {
   tar -xvzf $1
+}
+
+function fury_source() {
+  ruby -e "print ['https://', File.read(File.join(Dir.home, '.netrc')).match(/fury.+\n.+\n\  password (.+)/)[1] + '@gem.fury.io/thejonanshow/'].join.strip"
 }
