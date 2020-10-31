@@ -31,7 +31,7 @@ alias gt="git tag -a"
 alias gic="git init; git add .; git commit -m 'Omnium rerum principia parva sunt.'"
 alias gp="git push origin master"
 
-alias hcp="hub create"
+alias hc="hub create"
 alias hcp="hub create -p"
 alias hb="hub browse"
 
@@ -39,6 +39,7 @@ alias de="docker exec -it"
 alias ds="docker_shell"
 alias dr="docker_run"
 alias dp="docker ps"
+alias dl="docker container list --all"
 
 alias tarc="tar_compress"
 alias tarx="tar_decompress"
