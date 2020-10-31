@@ -8,6 +8,7 @@ export EDITOR="vim"
 
 GPG_TTY=$(tty)
 export GPG_TTY
+stty sane
 
 [[ ! -f ~/.aliases ]]    || source ~/.aliases
 [[ ! -f ~/.completion ]] || source ~/.completion

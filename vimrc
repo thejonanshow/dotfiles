@@ -36,6 +36,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'universal-ctags/ctags'
 Plug 'sheerun/vim-polyglot'
 call plug#end()
 
