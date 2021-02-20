@@ -53,6 +53,7 @@ set number
 set nowrap
 set list
 set listchars=tab:>-
+set wildignore=node_modules/**,.git/**
 
 syntax on
 au BufRead /tmp/psql.edit.* set syntax=sql
