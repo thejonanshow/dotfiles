@@ -10,7 +10,6 @@ alias be="bundle exec"
 alias tb="cd /Users/jonan/src/timeburger"
 alias pdxrb="cd /Users/jonan/dropboxpersonal/2020/pdxrb"
 alias ag='ag --path-to-ignore ~/.agignore'
-alias ls='ls -la'
 
 alias v="vim ."
 alias vv="vim ~/.vimrc"
@@ -19,6 +18,7 @@ alias z="vim ~/.zshrc; source ~/.zshrc"
 alias e="vim ~/.global.env; source ~/.global.env"
 alias t="vim ~/.tmux.conf; tmux source ~/.tmux.conf"
 alias ss="vim ~/.ssh/config"
+alias oo="vim ~/Dropbox/obsidian"
 
 alias conf="vim ~/src/dotfiles"
 alias python="python3"
