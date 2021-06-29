@@ -74,7 +74,24 @@ alias ff="rspec --next-failure"
 alias tarc="tar_compress"
 alias tarx="tar_decompress"
 
+alias pem="convert_pub_to_pem"
+alias enc="encrypt_file_with_public_key"
+
 alias flush="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
+
+function encrypt_file_with_public_key() {
+  pem_file=`convert_pub_to_pem $2`
+  `cat $1 | openssl rsautl -encrypt -pubin -inkey $pem_file > $1.enc`
+  echo "$1 was encrypted with $2: $1.enc"
+  echo "To decrypt:"
+  echo "cat $1.enc | openssl rsautl -decrypt -inkey ~/.ssh/id_rsa"
+}
+
+function convert_pub_to_pem() {
+  name=`basename $1 .pub`
+  ssh-keygen -f $1 -e -m PKCS8 > $name.pem.pub
+  echo $name.pem.pub
+}
 
 function docker_shell() {
   last_id=$(docker container ls -lq)
