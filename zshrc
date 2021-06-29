@@ -16,4 +16,5 @@ stty sane
 [[ ! -f ~/.p10k.zsh ]]   || source ~/.p10k.zsh
 [[ ! -f ~/.plugins ]]    || source ~/.plugins
 [[ ! -f ~/.rubysetup ]]  || source ~/.rubysetup
+[[ ! -f ~/.nodesetup ]]  || source ~/.nodesetup
 [[ ! -f ~/.pythonsetup ]]  || source ~/.pythonsetup
