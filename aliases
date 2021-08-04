@@ -11,6 +11,18 @@ alias tb="cd /Users/jonan/src/timeburger"
 alias pdxrb="cd /Users/jonan/dropboxpersonal/2020/pdxrb"
 alias ag='ag --path-to-ignore ~/.agignore'
 
+alias killen='sudo pfctl -Fa -f ~/.killswitch.pf.conf -e'
+alias killoff='sudo pfctl -Fa -f /etc/pf.conf -e'
+alias killdis='sudo pfctl -d'
+
+alias killen='sudo pfctl -Fa -f ~/.killswitch.pf.conf -e'
+alias killoff='sudo pfctl -Fa -f /etc/pf.conf -e'
+alias killdis='sudo pfctl -d'
+
+alias killen='sudo pfctl -Fa -f ~/.killswitch.pf.conf -e'
+alias killoff='sudo pfctl -Fa -f /etc/pf.conf -e'
+alias killdis='sudo pfctl -d'
+
 alias v="vim ."
 alias vv="vim ~/.vimrc"
 alias ali="vim ~/.aliases; source ~/.aliases"
@@ -23,6 +35,8 @@ alias oo="vim ~/Dropbox/obsidian"
 alias conf="vim ~/src/dotfiles"
 alias python="python3"
 alias pip="pip3"
+
+alias mm="cd /Users/jonan/Library/Application\ Support/minecraft/saves"
 
 alias pg="docker start postgresql"
 alias pgr="docker run --name postgresql -d -p 5432:5432 -e POSTGRES_HOST_AUTH_METHOD=trust -v /var/run/postgresql:/tmp -v /Users/jonan/pgdata:/var/lib/postgresql/data postgres"
