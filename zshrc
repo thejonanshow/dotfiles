@@ -11,10 +11,12 @@ export GPG_TTY
 stty sane
 
 [[ ! -f ~/.aliases ]]    || source ~/.aliases
-[[ ! -f ~/.completion ]] || source ~/.completion
+# [[ ! -f ~/.completion ]] || source ~/.completion
 [[ ! -f ~/.global.env ]] || source ~/.global.env
 [[ ! -f ~/.p10k.zsh ]]   || source ~/.p10k.zsh
 [[ ! -f ~/.plugins ]]    || source ~/.plugins
 [[ ! -f ~/.rubysetup ]]  || source ~/.rubysetup
 [[ ! -f ~/.nodesetup ]]  || source ~/.nodesetup
-[[ ! -f ~/.pythonsetup ]]  || source ~/.pythonsetup
+# [[ ! -f ~/.pythonsetup ]]  || source ~/.pythonsetup
+
+cd /home/jonan/src
