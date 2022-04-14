@@ -17,4 +17,3 @@ stty sane
 [[ ! -f ~/.plugins ]]    || source ~/.plugins
 [[ ! -f ~/.rubysetup ]]  || source ~/.rubysetup
 [[ ! -f ~/.nodesetup ]]  || source ~/.nodesetup
-[[ ! -f ~/.pythonsetup ]]  || source ~/.pythonsetup
