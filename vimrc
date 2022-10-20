@@ -37,6 +37,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'universal-ctags/ctags'
 Plug 'sheerun/vim-polyglot'
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 silent! colorscheme spacegray
