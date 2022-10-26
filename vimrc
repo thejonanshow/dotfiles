@@ -37,7 +37,8 @@ Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'universal-ctags/ctags'
 Plug 'sheerun/vim-polyglot'
-Plug 'ryanoasis/vim-devicons'
+Plug 'hashrocket/vim-macdown'
+Plug 'ryanoasis/vim-devicons' " leave this at the end
 call plug#end()
 
 silent! colorscheme spacegray
@@ -60,6 +61,15 @@ au BufRead /tmp/psql.edit.* set syntax=sql
 
 " YAML settings
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+" MacDown settings
+" execute commands on filetype save
+autocmd BufWritePost *.md :MacDownPreview
+" Enable closing MacDown when ':q' closes the current file, but doesn't
+" exit vim from vim-macdown plugin
+autocmd BufWinLeave *.md :MacDownClose
+" Enable closing MacDown when ':q' exits vim from vim-macdown plugin
+autocmd VimLeavePre *.md :MacDownExit
 
 command! Q  q  " Bind :Q  to :q
 command! W  w  " Bind :W  to :w
