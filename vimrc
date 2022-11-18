@@ -38,6 +38,11 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'universal-ctags/ctags'
 Plug 'sheerun/vim-polyglot'
 Plug 'hashrocket/vim-macdown'
+Plug 'prabirshrestha/vim-lsp'
+
+" 'on' empty defers loading of plugins: https://github.com/junegunn/vim-plug/wiki/tips#conditional-activation
+Plug 'Valloric/YouCompleteMe', { 'on': [] } " run ~/.vim/plugged/YouCompleteMe/install.py to recompile
+
 Plug 'ryanoasis/vim-devicons' " leave this at the end
 call plug#end()
 
@@ -70,6 +75,30 @@ autocmd BufWritePost *.md :MacDownPreview
 autocmd BufWinLeave *.md :MacDownClose
 " Enable closing MacDown when ':q' exits vim from vim-macdown plugin
 autocmd VimLeavePre *.md :MacDownExit
+
+" Setup rust-analyzer
+if executable('rust-analyzer')
+  au User lsp_setup call lsp#register_server({
+        \   'name': 'Rust Language Server',
+        \   'cmd': {server_info->['rust-analyzer']},
+        \   'whitelist': ['rust'],
+        \   'initialization_options': {
+        \     'cargo': {
+        \       'buildScripts': {
+        \         'enable': v:true,
+        \       },
+        \     },
+        \     'procMacro': {
+        \       'enable': v:true,
+        \     },
+        \   },
+        \ })
+endif
+
+fun! s:ycm()
+  call plug#load('YouCompleteMe')
+endfun
+command Y call s:ycm()
 
 command! Q  q  " Bind :Q  to :q
 command! W  w  " Bind :W  to :w

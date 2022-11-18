@@ -37,6 +37,10 @@ alias pip="pip3"
 
 alias mm="cd /Users/jonan/Library/Application\ Support/minecraft/saves"
 
+alias cb="cargo build"
+alias crates="cd /Users/jonanscheffler/src/criner; cargo run --release -- mine"
+alias spotify="spt"
+
 alias pg="docker start postgresql"
 alias pgr="docker run --name postgresql -d -p 5432:5432 -e POSTGRES_HOST_AUTH_METHOD=trust -v /var/run/postgresql:/tmp -v /Users/jonan/pgdata:/var/lib/postgresql/data postgres"
 alias pgx="docker stop postgresql"
