@@ -17,3 +17,16 @@ stty sane
 [[ ! -f ~/.plugins ]]    || source ~/.plugins
 [[ ! -f ~/.rubysetup ]]  || source ~/.rubysetup
 [[ ! -f ~/.nodesetup ]]  || source ~/.nodesetup
+[[ ! -f ~/.pythonsetup ]]  || source ~/.pythonsetup
+
+# pnpm
+export PNPM_HOME="/Users/jonan/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm endexport PATH="/usr/local/sbin:$PATH"
+
+# homebrew sbin path
+export PATH="/usr/local/sbin:$PATH"
+
+# Wasmer
+export WASMER_DIR="/Users/jonan/.wasmer"
+[ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"

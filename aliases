@@ -14,13 +14,8 @@ alias killen='sudo pfctl -Fa -f ~/.killswitch.pf.conf -e'
 alias killoff='sudo pfctl -Fa -f /etc/pf.conf -e'
 alias killdis='sudo pfctl -d'
 
-alias killen='sudo pfctl -Fa -f ~/.killswitch.pf.conf -e'
-alias killoff='sudo pfctl -Fa -f /etc/pf.conf -e'
-alias killdis='sudo pfctl -d'
-
-alias killen='sudo pfctl -Fa -f ~/.killswitch.pf.conf -e'
-alias killoff='sudo pfctl -Fa -f /etc/pf.conf -e'
-alias killdis='sudo pfctl -d'
+alias kglock='sudo pfctl -Fa -f /etc/kg.pf.conf -e'
+alias kgunlock='sudo pfctl -Fa -f /etc/pf.conf -e'
 
 alias v="vim ."
 alias vv="vim ~/.vimrc"
