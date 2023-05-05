@@ -3,7 +3,7 @@ nmap <leader>e :e **/
 nmap <leader>v :vsp **/
 
 :autocmd!
-map <leader>d :NERDTreeToggle<CR>
+map <silent><leader>d :NERDTreeToggle<CR>
 
 autocmd! bufwritepost $MYVIMRC source $MYVIMRC
 au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
@@ -15,23 +15,23 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'ajh17/Spacegray.vim'
+Plug 'hhff/SpacegrayEighties.vim'
 Plug 'beigebrucewayne/Turtles'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/vim-github-dashboard'
-Plug 'rking/ag.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
-Plug 'wincent/command-t'
 Plug 'Tarrasch/zsh-autoenv'
 Plug 'ryanoasis/vim-devicons'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" changed from tiagofumo to johnstef99 to prevent 'E5248: Invalid character in
+" group name' warnings in neovim
+Plug 'johnstef99/vim-nerdtree-syntax-highlight'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
@@ -39,6 +39,17 @@ Plug 'universal-ctags/ctags'
 Plug 'sheerun/vim-polyglot'
 Plug 'hashrocket/vim-macdown'
 Plug 'prabirshrestha/vim-lsp'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+if !has('nvim')
+  Plug 'rhysd/vim-healthcheck'
+endif
+
+if executable("rg")
+  set grepprg=rg\ --vimgrep
+endif
 
 " 'on' empty defers loading of plugins: https://github.com/junegunn/vim-plug/wiki/tips#conditional-activation
 Plug 'Valloric/YouCompleteMe', { 'on': [] } " run ~/.vim/plugged/YouCompleteMe/install.py to recompile
@@ -46,10 +57,12 @@ Plug 'Valloric/YouCompleteMe', { 'on': [] } " run ~/.vim/plugged/YouCompleteMe/i
 Plug 'ryanoasis/vim-devicons' " leave this at the end
 call plug#end()
 
-silent! colorscheme spacegray
+silent! colorscheme SpaceGrayEighties
+map <leader>f :FZF<CR>
 
 :let g:webdevicons_conceal_nerdtree_brackets = 1
 :let NERDTreeHighlightCursorline = 0
+:let $FZF_DEFAULT_COMMAND = 'rg --files --color=never --glob "!.git/*"'
 
 set encoding=UTF-8
 set t_Co=256

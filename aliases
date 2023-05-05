@@ -17,6 +17,7 @@ alias killdis='sudo pfctl -d'
 alias kglock='sudo pfctl -Fa -f /etc/kg.pf.conf -e'
 alias kgunlock='sudo pfctl -Fa -f /etc/pf.conf -e'
 
+alias vim="nvim"
 alias v="vim ."
 alias vv="vim ~/.vimrc"
 alias ali="vim ~/.aliases; source ~/.aliases"
@@ -25,9 +26,10 @@ alias e="vim ~/.global.env; source ~/.global.env"
 alias t="vim ~/.tmux.conf; tmux source ~/.tmux.conf"
 alias ss="vim ~/.ssh/config"
 alias oo="vim ~/Dropbox/obsidian"
+alias m="macdown"
 
 alias conf="vim ~/src/dotfiles"
-alias python="python3"
+alias python="python3.11"
 alias pip="pip3"
 
 alias mm="cd /Users/jonan/Library/Application\ Support/minecraft/saves"
@@ -56,14 +58,17 @@ alias gt="git tag -a"
 alias gic="git init; git add .; git commit -m 'Omnium rerum principia parva sunt.'"
 alias gp="git push origin main"
 alias grap="git_remote_add_push"
-alias gg="gic && hcp && grap"
+alias gg="gic && hc && grap"
+alias ggp="gic && hcp && grap"
 
 alias h="heroku"
 alias hd="git push heroku main"
 
+# use repo/delete_repo classic oauth token as password for hub login
 alias hc="hub create"
 alias hcp="hub create -p"
 alias hb="hub browse"
+alias hd="hub delete thejonanshow/${PWD##*/}"
 
 alias de="docker exec -it"
 alias ds="docker_shell"

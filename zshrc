@@ -5,6 +5,7 @@ export LC_ALL=en_US.utf-8
 export LANG=en_US.utf-8
 export RUBYOPT="-W:no-deprecated -W:no-experimental"
 export EDITOR="vim"
+export DOCKER_HOST='unix:///Users/jonan/.local/share/containers/podman/machine/podman-machine-default/podman.sock'
 
 GPG_TTY=$(tty)
 export GPG_TTY

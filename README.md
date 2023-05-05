@@ -20,3 +20,8 @@ Installation:
 git clone git@github.com:thejonanshow/dotfiles.git ~/src/dotfiles
 cd ~/src/dotfiles && ./install.sh
 ```
+
+Hacked Meslo font for icons:
+```
+p10k configure
+```
