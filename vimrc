@@ -121,6 +121,8 @@ command! P set paste
 command! NP set nopaste
 " command! X  x  " Bind :X to :x
 
+let @d = "orequire 'pry-byebug'; binding.pry:w"
+
 map <leader>rv       :so ~/.vimrc <CR>
 
 set nocompatible

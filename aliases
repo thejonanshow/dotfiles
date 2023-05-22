@@ -1,4 +1,5 @@
 alias s="cd ~/src"
+alias sy="say -v 'Sandy en_GB'"
 alias dk="cd ~/docker"
 alias dot="cd ~/src/dotfiles"
 
@@ -14,6 +15,9 @@ alias killen='sudo pfctl -Fa -f ~/.killswitch.pf.conf -e'
 alias killoff='sudo pfctl -Fa -f /etc/pf.conf -e'
 alias killdis='sudo pfctl -d'
 
+alias showall='defaults write com.apple.finder AppleShowAllFiles TRUE; killall finder'
+alias hideall='defaults write com.apple.finder AppleShowAllFiles FALSE; killall finder'
+
 alias kglock='sudo pfctl -Fa -f /etc/kg.pf.conf -e'
 alias kgunlock='sudo pfctl -Fa -f /etc/pf.conf -e'
 
@@ -27,6 +31,7 @@ alias t="vim ~/.tmux.conf; tmux source ~/.tmux.conf"
 alias ss="vim ~/.ssh/config"
 alias oo="vim ~/Dropbox/obsidian"
 alias m="macdown"
+alias bb="vim ~/src/dotfiles/brewfile"
 
 alias conf="vim ~/src/dotfiles"
 alias python="python3.11"
