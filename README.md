@@ -30,3 +30,5 @@ Nvim setup:
 ```
 https://neovim.io/doc/user/nvim.html#nvim-from-vim
 ```
+
+Edited from Composer!
