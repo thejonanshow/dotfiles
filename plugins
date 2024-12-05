@@ -1,1 +1,1 @@
-plugins=(git docker docker-compose tmux)
+plugins=(git docker docker-compose tmux autodark)

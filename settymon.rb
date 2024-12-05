@@ -4,20 +4,27 @@ require "fileutils"
 require "digest"
 require "optparse"
 
+DEBUG_DEFAULT = true
+
 # Default DEBUG mode to true, but allow overriding via CLI
 options = {}
 OptionParser.new do |opts|
   opts.banner = "Usage: script.rb [options]"
   opts.on("-d", "--debug", "Enable/Disable debug mode") do |v|
-    options[:debug] = v.nil? ? false : !v
+    options[:debug] = v.nil? ? DEBUG_DEFAULT : !v
   end
   opts.on("-q", "--quiet", "Enable quiet mode (no debug output)") do
     options[:quiet] = true
   end
+  opts.on("-r", "--revert", "Revert symlink, usage: --revert all, --revert [app name]") do |v|
+    options[:revert] = v.nil? ? false : v
+  end
 end.parse!
 
-DEBUG = options[:debug].nil? ? false : options[:debug]
+DEBUG = options[:debug].nil? ? DEBUG_DEFAULT : options[:debug]
 QUIET = options[:quiet] || false
+REVERT = options[:revert] || false
+
 DOTFILES_DIR = File.expand_path("~/src/dotfiles")
 SETTINGS_DIR = File.join(DOTFILES_DIR, "settymon")
 TMP_DIR = File.join(SETTINGS_DIR, "tmp")
@@ -25,6 +32,7 @@ ORIGINALS_DIR = File.join(SETTINGS_DIR, "originals")
 LOCALS_DIR = File.join(SETTINGS_DIR, "plists")
 GROUP_CONTAINERS_DIR = File.expand_path("~/Library/Group Containers")
 PLIST_PATHS = {}
+APP_PIDS = {}
 
 # If DEBUG is enabled, redefine FileUtils as a no-op, providing feedback on what would have happened
 if DEBUG
@@ -165,8 +173,12 @@ def handle_app_plist(app_name, plist_paths)
 
   host_plist_exists = File.exist?(host_plist)
   local_plist_exists = File.exist?(local_plist)
+  symlink_exists = File.symlink?(host_plist)
 
-  if host_plist_exists && local_plist_exists
+  if symlink_exists && File.readlink(host_plist) == local_plist
+    log("#{app_name} is correctly symlinked to the local plist.")
+
+  elsif host_plist_exists && local_plist_exists
     log("#{app_name} has a host plist and a local plist.", :blue)
     backup_original_plist(app_name, host_plist)
     create_atomic_symlink(app_name, local_plist, host_plist)
@@ -228,12 +240,62 @@ def output_results(apps_with_artifacts, apps_without_artifacts, apps_with_plists
   puts
 end
 
+# Find the PID for an app name if it's running, otherwise return nil
+def app_pid(app_name)
+  application_lines = `ps aux | grep Applications`
+
+  first_dot_app_line = application_lines.split("\n").select { |l| l.match(/#{app_name}[^\.]*.app/i)}.first
+  require 'pry-byebug'; binding.pry if app_name == "iterm2"
+
+  # Short circuit if we don't find the app name running
+  unless first_dot_app_line
+    log("#{app_name} does not appear to be running", :red)
+    return nil
+  end
+
+  return nil unless first_dot_app_line
+
+  # Return the PID (first matching digits we find until whitespace)
+  found_pid = first_dot_app_line.match(/\d+\s/)[0].strip
+  log("#{app_name} is running with PID #{found_pid}", :green)
+  found_pid
+end
+
+def set_app_pids(app_names)
+  running_apps = []
+
+  app_names.each do |app_name|
+    found_pid = app_pid(app_name)
+    running_apps.push(app_name) if found_pid
+
+    APP_PIDS[app_name] = found_pid
+  end
+
+  log("Found running application: #{running_apps}", :light_blue)
+end
+
+def warn_running_apps
+  APP_PIDS.map.with_index do |name_with_pid, index|
+    app_name, pid = name_with_pid
+    log("These applications will need to be restarted after plist installation:", :yellow) if index == 0
+    log("\t#{app_name} with pid #{pid}", :yellow) if pid
+  end
+end
+
 # Main logic of the script
 def main
   log("Running in DEBUG mode", :yellow) if DEBUG
 
+  if REVERT
+    log("Reverting", :red)
+    exit
+  end
+
   # Fetch apps and brew info
   apps = get_installed_apps
+  set_app_pids(apps)
+  warn_running_apps
+  exit
   bulk_brew_info = get_brew_info(apps)
 
   # Process app info

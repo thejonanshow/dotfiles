@@ -3,12 +3,9 @@ alias sy="say -v 'Sandy en_GB'"
 alias dk="cd ~/docker"
 alias dot="cd ~/src/dotfiles"
 
-alias n="vim ~/Dropbox/2022/notes"
-alias nn="cd ~/Dropbox/2022/notes"
-alias par="cd ~/Dropbox/2022/work/parity"
+alias n="vim ~/Dropbox/2024/notes"
+alias nn="cd ~/Dropbox/2024/notes"
 alias be="bundle exec"
-alias tb="cd /Users/jonan/src/timeburger"
-alias pdxrb="cd /Users/jonan/dropboxpersonal/2020/pdxrb"
 alias ag='ag --path-to-ignore ~/.agignore'
 
 alias killen='sudo pfctl -Fa -f ~/.killswitch.pf.conf -e'
@@ -21,6 +18,7 @@ alias hideall='defaults write com.apple.finder AppleShowAllFiles FALSE; killall 
 alias kglock='sudo pfctl -Fa -f /etc/kg.pf.conf -e'
 alias kgunlock='sudo pfctl -Fa -f /etc/pf.conf -e'
 
+alias drop="cd ~/Dropbox/2023"
 alias vim="nvim"
 alias v="vim ."
 alias vv="vim ~/.vimrc"
@@ -32,6 +30,7 @@ alias ss="vim ~/.ssh/config"
 alias oo="vim ~/Dropbox/obsidian"
 alias m="macdown"
 alias bb="vim ~/src/dotfiles/brewfile"
+alias brewup="brew bundle --file=~/src/dotfiles/brewfile"
 
 alias conf="vim ~/src/dotfiles"
 alias python="python3.11"

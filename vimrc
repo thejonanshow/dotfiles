@@ -2,6 +2,17 @@
 nmap <leader>e :e **/
 nmap <leader>v :vsp **/
 
+set encoding=UTF-8
+set t_Co=256
+set autoindent tabstop=2 softtabstop=2 expandtab shiftwidth=2
+set backspace=indent,eol,start
+set number
+set nowrap
+set list
+set listchars=tab:>-
+set wildignore=node_modules/**,.git/**
+set sessionoptions-=blank
+
 :autocmd!
 map <silent><leader>d :NERDTreeToggle<CR>
 
@@ -52,7 +63,7 @@ if executable("rg")
 endif
 
 " 'on' empty defers loading of plugins: https://github.com/junegunn/vim-plug/wiki/tips#conditional-activation
-Plug 'Valloric/YouCompleteMe', { 'on': [] } " run ~/.vim/plugged/YouCompleteMe/install.py to recompile
+" Plug 'Valloric/YouCompleteMe', { 'on': [] } " run ~/.vim/plugged/YouCompleteMe/install.py to recompile
 
 Plug 'ryanoasis/vim-devicons' " leave this at the end
 call plug#end()
@@ -63,16 +74,6 @@ map <leader>f :FZF<CR>
 :let g:webdevicons_conceal_nerdtree_brackets = 1
 :let NERDTreeHighlightCursorline = 0
 :let $FZF_DEFAULT_COMMAND = 'rg --files --color=never --glob "!.git/*"'
-
-set encoding=UTF-8
-set t_Co=256
-set tabstop=4 softtabstop=0 expandtab shiftwidth=2 smarttab
-set backspace=indent,eol,start
-set number
-set nowrap
-set list
-set listchars=tab:>-
-set wildignore=node_modules/**,.git/**
 
 syntax on
 au BufRead /tmp/psql.edit.* set syntax=sql

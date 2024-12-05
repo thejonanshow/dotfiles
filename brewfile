@@ -90,7 +90,6 @@ cask 'telegram'
 cask 'whatsapp'
 cask 'loom'
 cask 'discord'
-cask 'cron'
 cask 'remarkable'
 
 tap 'homebrew/cask-fonts'
